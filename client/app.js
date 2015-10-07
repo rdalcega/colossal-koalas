@@ -107,7 +107,7 @@ app.config(['$stateProvider', '$urlRouterProvider',
           },
 
           page: {
-            templateUrl: '',
+            templateUrl: './map/map.html',
             controller: ''
           }
         },
@@ -121,7 +121,7 @@ app.config(['$stateProvider', '$urlRouterProvider',
 
         views: {
           initial: {
-            templateUrl: '',
+            templateUrl: './map/map.init.html',
           }
         },
 
@@ -134,7 +134,7 @@ app.config(['$stateProvider', '$urlRouterProvider',
 
         views: {
           selected: {
-            templateUrl: '',
+            templateUrl: './map/map.selected.html',
           }
         },
 
