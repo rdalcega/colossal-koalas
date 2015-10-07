@@ -4,6 +4,8 @@ var app = angular.module('greenfeels',
 app.config(['$stateProvider', '$urlRouterProvider',
   function($stateProvider, $urlRouterProvider) {
 
+    //HERE IS A COMMENT
+
     $stateProvider
       .state('home', {
         // Parent state of home; load home.html, set controller, use initial state
