@@ -7,6 +7,8 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
     // attributes of the <img> tags within the buttons.
     $scope.getTwemojiSrc = Twemoji.getTwemojiSrc;
 
+    $state.transitionTo('map.initial');
+
     $scope.selectHandler = function($event) {
       // $state.transitionTo('home.selected');
       // clearSelectedStates();
