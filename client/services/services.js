@@ -190,7 +190,8 @@ angular.module('greenfeels.services', [])
     addEntry: addEntry,
     getEntry: getEntry,
     updateEntry: updateEntry,
-    deleteEntry: deleteEntry
+    deleteEntry: deleteEntry,
+    getWords: getWords
   };
 }])
 
