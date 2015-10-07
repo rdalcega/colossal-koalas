@@ -97,6 +97,51 @@ app.config(['$stateProvider', '$urlRouterProvider',
           requireLogin: true //authentication is required to access this state
         }
       })
+      .state('wordmap', {
+        url: '/map',
+
+        views: {
+          nav: {
+            templateUrl: './nav/nav.html',
+            controller: ''
+          },
+
+          page: {
+            templateUrl: '',
+            controller: ''
+          }
+        },
+
+        data: {
+          requireLogin: true //authentication is required to access this state
+        }
+      })
+      .state('wordmap.initial', {
+        // url: '/map',
+
+        views: {
+          initial: {
+            templateUrl: '',
+          }
+        },
+
+        data: {
+          requireLogin: true //authentication is required to access this state
+        }
+      })
+      .state('wordmap.selected', {
+        // url: '/map',
+
+        views: {
+          selected: {
+            templateUrl: '',
+          }
+        },
+
+        data: {
+          requireLogin: true //authentication is required to access this state
+        }
+      })
       .state('signin', {
         url: '/signin',
         
