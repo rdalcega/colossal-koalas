@@ -19,7 +19,7 @@ graph.controller('GraphController',
 				//Initialize graph parameters
 				renderGraph(data);
 
-			})      	
+			})
 	}() 	//immediately invoke
 
 	var renderGraph = function(data){
@@ -32,7 +32,7 @@ graph.controller('GraphController',
 	}
 
 	var initializeGraphParameters = function(data){
-		//container 
+		//container
 		var params = {};
 		params.data = data;
 		//create svg
@@ -42,7 +42,7 @@ graph.controller('GraphController',
 			marginVertical:100,
 			marginSides:50
 		};
-		//svg selector 
+		//svg selector
 		params.svg = d3.select("#graph1").append("svg")
 		.attr("width",params.options.width)
 		.attr("height",params.options.height);
@@ -76,7 +76,7 @@ graph.controller('GraphController',
 			// console.log(time,params.momentRange);
 			return time;
 		})
-		.orient('bottom') 
+		.orient('bottom')
 
 		//clear previous append
 		params.svg.selectAll("g").remove()
@@ -85,7 +85,7 @@ graph.controller('GraphController',
 		.attr('class','axis')
 		.attr('transform','translate(0,'+ (params.options.height - params.options.marginVertical) +')')
 		.call(xAxis)
-		.selectAll("text")  
+		.selectAll("text")
 		.style("text-anchor", "end")
 		.attr("transform", "rotate(-25)" );
 	}
@@ -115,7 +115,7 @@ graph.controller('GraphController',
 				"box-sizing": "border-box",
 				"border": "150px",
 				"padding": "20px",
-				"background-color": "#fff"	
+				"background-color": "#fff"
 			})
 			// d3.select(this).attr('opacity',0.8)
 		})
@@ -125,14 +125,14 @@ graph.controller('GraphController',
 		})
 
 		.on('click',function(d){
-			
+
 
 		})
 		.append('title')
 		.text(function(d){return d['text']})
 
 		params.svg.selectAll("circle").data(params.data,function(e,index){return index})
-		.enter()    
+		.enter()
 		.append("circle")
 		.attr("cx", function(d){
 			return params.mapX(new Date(d["createdAt"]))
@@ -149,7 +149,7 @@ graph.controller('GraphController',
 			d3.selectAll('.emojiLink').remove();
 
 			d3.select(this).attr('stroke','white').attr('stroke-width', '6').attr('opacity', 1).attr('fill', 'none')
-			
+
 			d3.select('#graphText')
 			.append('div')
 			.attr('class','emojiText')
@@ -167,7 +167,7 @@ graph.controller('GraphController',
 
 				d3.select(this).remove();
 
-				d3.select('.emojiText')			
+				d3.select('.emojiText')
 				.append('button')
 				.attr('class', 'update-button')
 				.on('click',function(){
@@ -177,7 +177,7 @@ graph.controller('GraphController',
 				})
 				.text('Update Entry')
 
-				
+
 				d3.select('.emojiText')
 				.append('button')
 				.attr('class', 'update-button')

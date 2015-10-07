@@ -49,7 +49,7 @@ angular.module('greenfeels.services', [])
     [ // 😣
     'Is there anything you\'d like to write about how you\'re feeling?',
     'Are there any details about your mood that you want to record?'
-    ] 
+    ]
     ];
 
   // Get prompt #2 for selected state view of home page.
@@ -102,7 +102,7 @@ angular.module('greenfeels.services', [])
       })
       .then(function(resp) {
         return resp.data;
-      });      
+      });
     }
   }
 

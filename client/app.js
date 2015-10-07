@@ -8,7 +8,7 @@ app.config(['$stateProvider', '$urlRouterProvider',
       .state('home', {
         // Parent state of home; load home.html, set controller, use initial state
         url: '/',
-        
+
         views: {
           nav: {
             templateUrl: './nav/nav.html',
@@ -55,9 +55,9 @@ app.config(['$stateProvider', '$urlRouterProvider',
       })
       .state('journal', {
         url: '/journal', // optional
-        
+
         views: {
-          
+
           nav: {
             templateUrl: './nav/nav.html',
             controller: 'AuthController'
@@ -76,9 +76,9 @@ app.config(['$stateProvider', '$urlRouterProvider',
       })
       .state('graph', {
         url: '/graph', // optional
-        
+
         views: {
-          
+
           nav: {
             templateUrl: './nav/nav.html',
             controller: 'AuthController'
@@ -95,11 +95,56 @@ app.config(['$stateProvider', '$urlRouterProvider',
           requireLogin: true //authentication is required to access this state
         }
       })
+      .state('wordmap', {
+        url: '/map',
+
+        views: {
+          nav: {
+            templateUrl: './nav/nav.html',
+            controller: ''
+          },
+
+          page: {
+            templateUrl: '',
+            controller: ''
+          }
+        },
+
+        data: {
+          requireLogin: true //authentication is required to access this state
+        }
+      })
+      .state('wordmap.initial', {
+        // url: '/map',
+
+        views: {
+          initial: {
+            templateUrl: '',
+          }
+        },
+
+        data: {
+          requireLogin: true //authentication is required to access this state
+        }
+      })
+      .state('wordmap.selected', {
+        // url: '/map',
+
+        views: {
+          selected: {
+            templateUrl: '',
+          }
+        },
+
+        data: {
+          requireLogin: true //authentication is required to access this state
+        }
+      })
       .state('signin', {
         url: '/signin',
-        
+
         views: {
-        
+
           page: {
             templateUrl: './auth/signin.html',
             controller: 'AuthController'
@@ -112,9 +157,9 @@ app.config(['$stateProvider', '$urlRouterProvider',
       })
       .state('signup', {
         url: '/signup',
-        
+
         views: {
-        
+
           page: {
             templateUrl: './auth/signup.html',
             controller: 'AuthController'
