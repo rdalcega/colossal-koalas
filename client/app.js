@@ -1,5 +1,5 @@
 var app = angular.module('greenfeels',
-  ['greenfeels.services', 'greenfeels.home', 'greenfeels.journal', 'greenfeels.auth','greenfeels.graph','ui.router', 'ngAnimate']);
+  ['greenfeels.services', 'greenfeels.home', 'greenfeels.journal', 'greenfeels.auth','greenfeels.graph', 'greenfeels.map', 'ui.router', 'ngAnimate']);
 
 app.config(['$stateProvider', '$urlRouterProvider',
   function($stateProvider, $urlRouterProvider) {
@@ -103,12 +103,12 @@ app.config(['$stateProvider', '$urlRouterProvider',
         views: {
           nav: {
             templateUrl: './nav/nav.html',
-            controller: ''
+            controller: 'AuthController'
           },
 
           page: {
             templateUrl: './map/map.html',
-            controller: ''
+            controller: 'MapController'
           }
         },
 
