@@ -42,16 +42,26 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
             .text(function(d) { return d.text; });
       };
 
-      Entries.getWords(emotion)
-        .then(function(data) {
-          d3.layout.cloud().size([650, 650])
-            .words(data)
-            .rotate(function() { return ~~(Math.random() * 2) * 90; })
-            .font("Raleway")
-            .fontSize(function(d) { return d.frequency; })
-            .on("end", draw)
-            .start();
-        });
+      // Entries.getWords(emotion)
+      //   .then(function(data) {
+      //     d3.layout.cloud().size([650, 650])
+      //       .words(data)
+      //       .rotate(function() { return ~~(Math.random() * 2) * 90; })
+      //       .font("Raleway")
+      //       .fontSize(function(d) { return d.frequency; })
+      //       .on("end", draw)
+      //       .start();
+      //   });
+
+      var myWords = Entries.getWords(emotion);
+
+      d3.layout.cloud().size([650, 650])
+        .words(myWords)
+        .rotate(function() { return ~~(Math.random() * 2) * 90; })
+        .font("Raleway")
+        .fontSize(function(d) { return d.frequency; })
+        .on("end", draw)
+        .start();
 
     };
 
