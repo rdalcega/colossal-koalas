@@ -1,1 +1,18 @@
-;akjshg;kajd
+<div class="map">
+  <div ui-view="initial" class="fade"></div>
+  <div>
+    <!-- Spectrum stays on screen -->
+      <ul class="emotion-spectrum"> 
+      <!-- Grabbed images from: http://twitter.github.io/twemoji/preview.html -->
+        <li><button class="emoji" ng-click="selectHandler($event)" data-emotion-id="0"><img src="{{ getTwemojiSrc(0, 72) }}"></button></li>
+        <li><button class="emoji" ng-click="selectHandler($event)" data-emotion-id="1"><img src="{{ getTwemojiSrc(1, 72) }}"/></button></li>
+        <li><button class="emoji" ng-click="selectHandler($event)" data-emotion-id="2"><img src="{{ getTwemojiSrc(2, 72) }}"/></button></li>
+        <li><button class="emoji" ng-click="selectHandler($event)" data-emotion-id="3"><img src="{{ getTwemojiSrc(3, 72) }}"/></button></li>
+        <li><button class="emoji" ng-click="selectHandler($event)" data-emotion-id="4"><img src="{{ getTwemojiSrc(4, 72) }}"/></button></li>
+        <li><button class="emoji" ng-click="selectHandler($event)" data-emotion-id="5"><img src="{{ getTwemojiSrc(5, 72) }}"/></button></li>
+        <li><button class="emoji" ng-click="selectHandler($event)" data-emotion-id="6"><img src="{{ getTwemojiSrc(6, 72) }}"/></button></li>
+        <li><button class="emoji" ng-click="selectHandler($event)" data-emotion-id="7"><img src="{{ getTwemojiSrc(7, 72) }}"/></button></li>
+     </ul>
+     <div ui-view="selected" class="fade"></div>
+   </div>
+ </div>
