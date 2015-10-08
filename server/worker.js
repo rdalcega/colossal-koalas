@@ -1,6 +1,5 @@
 var fs = require('fs');
 var http = require( 'http' );
-var db = require('./database/interface');
 var AlchemyAPI = require( './assets/alchemyapi');
 var alchemyapi = new AlchemyAPI( '73ad3b222a6bcb7a40192e87eb2a393469e08fcf' );
 var stopwords = require('./assets/stopwords.js');
@@ -8,15 +7,16 @@ var stopwords = require('./assets/stopwords.js');
 fs.watch('./queue', function (event, filename) {
   if (filename) {
     if( fs.readdirSync( './queue/' ).indexOf( filename ) >= 0 ) {
-      var JSON = JSON.parse( fs.readFileSync( './queue/' + filename, 'utf8' ) );
+      var data = JSON.parse( fs.readFileSync( './queue/' + filename, 'utf8' ) );
       fs.unlink( './queue/' + filename );
-      alchemyapi.keywords('text', JSON.text, null, function keywordsCallback( keywordsJSON ) {
-        if( error ) {
-          throw error;
+      alchemyapi.keywords('text', data.text, {sentiment: true}, function keywordsCallback( keywordsJSON ) {
+        data.text = data.text.replace(/[\.\,\:\;\'\"\?\!']/g, '');
+        if( keywordsJSON.status && keywordsJSON.status === 'ERROR' ) {
+          throw keywordsJSON.statusInfo;
         } else {
-          alchemyapi.sentiment('text', JSON.text, null, function documentCallback( documentJSON ) {
-            if(error) {
-              throw error;
+          alchemyapi.sentiment('text', data.text, null, function documentCallback( documentJSON ) {
+            if(documentJSON.status && documentJSON.status === 'ERROR' ) {
+              throw documentJSON.statusInfo;
             }
             var words = [];
             keywordsJSON.keywords.forEach( function( keyword ) {
@@ -46,11 +46,11 @@ fs.watch('./queue', function (event, filename) {
 
               }
 
-              JSON.text.replace(keyword, '');
+              data.text = data.text.replace(keyword.text, '');
 
             });
 
-            var allWords = JSON.text.trim().split(' ');
+            var allWords = data.text.trim().split(' ');
 
             allWords.forEach(function(word, index) {
               word.trim();
@@ -71,7 +71,7 @@ fs.watch('./queue', function (event, filename) {
             allWords.forEach(function(word) {
               var found = false;
               words.forEach(function(wordToStore) {
-                if (wordToStore === word) {
+                if (wordToStore.text === word) {
                   wordToStore.frequency += 1;
                   found = true;
                 }
@@ -80,7 +80,7 @@ fs.watch('./queue', function (event, filename) {
               if (!found) {
                 words.push({
                   text: word,
-                  averageSentiment: documentJSON.docSentiment[0].score,
+                  averageSentiment: documentJSON.docSentiment.score,
                   frequency: 1
                  });
               }
@@ -93,8 +93,8 @@ fs.watch('./queue', function (event, filename) {
                 {
 
                   word: word.text,
-                  userId: JSON.userId,
-                  emotion: JSON.emotion
+                  userId: data.userId,
+                  emotion: data.emotion
 
                 }
               })
@@ -116,8 +116,8 @@ fs.watch('./queue', function (event, filename) {
                     word: word.text,
                     frequency: word.frequency,
                     averageSentiment: word.averageSentiment,
-                    userId: JSON.userId,
-                    emotion: JSON.emotion
+                    userId: data.userId,
+                    emotion: data.emotion
 
                   });
 
@@ -129,7 +129,6 @@ fs.watch('./queue', function (event, filename) {
               });
 
             });
-
             
           });
         }
