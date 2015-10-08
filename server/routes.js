@@ -162,6 +162,10 @@ var pathHandlers = {
 
                 throw error;
 
+              } else {
+
+                console.log( 'FILE IS SAVED! FILE IS SAVED!!!!!!!!' );
+
               }
 
             });
