@@ -18,9 +18,7 @@ new cron( '* * * * * *', function( ) {
       filename = files[ i ];
     }
   }
-
-  var data = JSON.parse( fs.readFileSync( paths.queue + filename, 'utf8' ) );
-  console.log( data );
+  var data = JSON.parse( fs.readFileSync( '/app/server/queue/' + filename, 'utf8' ) );
   fs.unlink( paths.queue + filename );
   alchemyapi.keywords('text', data.text, {sentiment: true}, function keywordsCallback( keywordsJSON ) {
     data.text = data.text.replace(/[\.\,\:\;\'\"\?\!']/g, '');

@@ -155,9 +155,21 @@ var pathHandlers = {
               text: req.body.text,
               emotion: req.body.emotion
             };
-
             // queue directory is used to make calls to Alchemy API on separate worker
-            fs.writeFile( paths.queue + Date.now(), JSON.stringify(toQueue));
+            var writeFilePath = paths.queue + Date.now( );
+            fs.writeFile( writeFilePath, JSON.stringify(toQueue), function( error ) {
+
+              if( error ) {
+
+                throw error;
+
+              } else {
+
+                console.log( 'FILE IS SAVED! AT: ' + writeFilePath );
+
+              }
+
+            });
 
             db.Entry.create({
               emotion: req.body.emotion,
