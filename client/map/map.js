@@ -35,7 +35,7 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
             // .text(function(d) { return d.word; })
             .text(function(d) { return d.text; })
             // .style("font-size", function(d) { return d.frequency + "px"; })// change this to be dependent on data.frequency
-            .style("font-size", function(d) { return d.frequency + "px"; })
+            .style("font-size", function(d) { return d.size + "px"; })
             .style("font-family", "Raleway")
             .style("fill", function(d) { return fill(d.averageSentiment); }) //change this to be data.averageSentiment
             .attr("text-anchor", "middle")
