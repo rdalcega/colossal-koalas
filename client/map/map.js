@@ -19,11 +19,9 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
 
     var makeMap = function (emotion) {
 
-      // var fill = d3.scale.linear()
-      //   .domain([-1, 1])
-      //   .range("red", "blue");
-
-      var fill = d3.scale.category20();
+      var fill = d3.scale.linear()
+        .domain([-1, 1])
+        .range("red", "blue");
 
       var draw = function (words) {
         d3.select(".map").append("svg")
@@ -36,13 +34,12 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
           .enter().append("text")
             .style("font-size", function(d) { return d.frequency + "px"; })// change this to be dependent on data.frequency
             .style("font-family", "Raleway")
-            // .style("fill", function(d) { return fill(d.averageSentiment); }) //change this to be data.averageSentiment
-            .style("fill", function(d, i) { return fill(i); }
+            .style("fill", function(d) { return fill(d.averageSentiment); }) //change this to be data.averageSentiment
             .attr("text-anchor", "middle")
             .attr("transform", function(d) {
               return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
             })
-            .text(function(d) { return d.word; }));
+            .text(function(d) { return d.word; });
       };
 
       // Entries.getWords(emotion)
