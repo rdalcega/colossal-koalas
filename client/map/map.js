@@ -33,12 +33,12 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
             .attr("transform", "translate(150,150)") //figure out what this is later
             .selectAll("text")
             .data(words)
-            .style("fill", function(d) { console.log('from fill: ', d); return fill(d.averageSentiment); })
             .enter().append("text")
             .text(function(d) { console.log('from text: ', d); return d.word; })
             .style("font-size", function(d) { return d.size * 3 + "px"; })
             .style("font-family", "Raleway")
             .style("font-weight", 400)
+            .style("fill", function(d) { console.log('from fill: ', d); return fill(d.averageSentiment); })
             .attr("text-anchor", "middle")
             .attr("transform", function(d) {
               return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
