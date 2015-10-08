@@ -25,7 +25,7 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
         .domain([-1, 1])
         .range("red", "blue");
 
-      var draw = function (words) {
+      var draw = function (words, bounds) {
         d3.select(".word-map").append("svg")
             .attr("width", 600)
             .attr("height", 600)
@@ -33,12 +33,12 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
             .attr("transform", "translate(150,150)") //figure out what this is later
             .selectAll("text")
             .data(words)
-            .style("fill", function(d) { console.log(d); return fill(d.averageSentiment); })
             .enter().append("text")
-            .text(function(d) { console.log(d); return d.text; })
+            .text(function(d) { console.log('from text: ', d); return d.word; })
             .style("font-size", function(d) { return d.size * 3 + "px"; })
             .style("font-family", "Raleway")
             .style("font-weight", 400)
+            .style("fill", function(d) { console.log('from fill: ', d); return fill(d.averageSentiment); })
             .attr("text-anchor", "middle")
             .attr("transform", function(d) {
               return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
@@ -59,11 +59,11 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
 
       d3.layout.cloud().size([600, 600])
         .words(myWords)
-        // .rotate(function() { return ~~(Math.random() * 2) * 90; })
         .font("Raleway")
         .fontSize(function(d) { return d.frequency; })
-        .text(function(d) { return d.word; })
-        .on("end", draw)
+        .fontWeight(function() { return 400; })
+        .text(function(d) { return d.text; })
+        .on("end", draw) //draw is passed in two objects, an array of the word objects and their positions, and the bounds
         .start();
 
     };
