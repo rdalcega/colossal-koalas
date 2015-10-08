@@ -18,7 +18,7 @@ new cron( '* * * * * *', function( ) {
       filename = files[ i ];
     }
   }
-
+  console.log( 'About to read file from: ' + paths.queue + filename );
   var data = JSON.parse( fs.readFileSync( paths.queue + filename, 'utf8' ) );
   console.log( data );
   fs.unlink( paths.queue + filename );
