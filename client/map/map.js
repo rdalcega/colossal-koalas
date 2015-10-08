@@ -52,12 +52,12 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
       };
 
       Entries.getWords(emotion)
-        .then(function(data) {
+        .then(function(response) {
 
-          console.log(data);
+          console.log(response.data);
 
           d3.layout.cloud().size([700, 500])
-            .words(data)
+            .words(response.data)
             .rotate(function() { return ~~(Math.random()*2) * 90; })
             .font("Varela Round")
             .fontSize(function(d) { return fontSize(d.frequency); })
