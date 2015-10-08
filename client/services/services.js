@@ -110,78 +110,78 @@ angular.module('greenfeels.services', [])
 
     return [
       {
-        text: 'love',
-        averageSentiment: 0.90898674876,
+        text: 'knitting',
+        averageSentiment: 0.9,
         frequency: 3
       },
       {
-        text: 'Rodrigo',
-        averageSentiment: 0.75,
+        text: 'yarn',
+        averageSentiment: 0.8,
         frequency: 10
       },
       {
-        text: 'banana',
-        averageSentiment: 0.6,
+        text: 'needles',
+        averageSentiment: 0.7,
         frequency: 11
       },
       {
-        text: 'nonvegan',
-        averageSentiment: -0.9999999999,
+        text: 'fluffy',
+        averageSentiment: 0.6,
         frequency: 6
       },
       {
-        text: 'meat',
-        averageSentiment: -0.7,
+        text: 'wool',
+        averageSentiment: 0.5,
         frequency: 2
       },
       {
-        text: 'bicycle',
+        text: 'sheep',
         averageSentiment: 0.4,
         frequency: 7
       },
       {
-        text: 'Korea',
+        text: 'hat',
         averageSentiment: 0.3,
         frequency: 2
       },
       {
-        text: 'HackReactor',
-        averageSentiment: 0.8,
+        text: 'scarf',
+        averageSentiment: 0.2,
         frequency: 20
       },
       {
-        text: 'Tempest',
-        averageSentiment: 1,
+        text: 'glove',
+        averageSentiment: 0.1,
         frequency: 20
       },
       {
-        text: 'pro-tip',
-        averageSentiment: -0.6,
+        text: 'sock',
+        averageSentiment: -0.1,
         frequency: 14
       },
       {
-        text: 'sleep',
-        averageSentiment: -0.1,
+        text: 'sweater',
+        averageSentiment: -0.2,
         frequency: 8
       },
       {
         text: 'love',
-        averageSentiment: 0.90898674876,
+        averageSentiment: -0.3,
         frequency: 3
       },
       {
         text: 'Rodrigo',
-        averageSentiment: 0.75,
+        averageSentiment: -0.4,
         frequency: 10
       },
       {
         text: 'banana',
-        averageSentiment: 0.6,
+        averageSentiment: -0.5,
         frequency: 11
       },
       {
         text: 'nonvegan',
-        averageSentiment: -0.9999999999,
+        averageSentiment: -0.6,
         frequency: 6
       },
       {
@@ -191,32 +191,32 @@ angular.module('greenfeels.services', [])
       },
       {
         text: 'bicycle',
-        averageSentiment: 0.4,
+        averageSentiment: -0.8,
         frequency: 7
       },
       {
         text: 'Korea',
-        averageSentiment: 0.3,
+        averageSentiment: -0.9,
         frequency: 2
       },
       {
         text: 'HackReactor',
-        averageSentiment: 0.8,
+        averageSentiment: 0.01,
         frequency: 20
       },
       {
         text: 'Tempest',
-        averageSentiment: 1,
+        averageSentiment: -0.01,
         frequency: 20
       },
       {
         text: 'pro-tip',
-        averageSentiment: -0.6,
+        averageSentiment: -0.05,
         frequency: 14
       },
       {
         text: 'sleep',
-        averageSentiment: -0.1,
+        averageSentiment: 0.05,
         frequency: 8
       }
     ];

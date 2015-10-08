@@ -36,7 +36,7 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
             .enter().append("text")
             .text(function(d) { return d.text; })
             .style("font-size", function(d) { return d.size * 3 + "px"; })
-            .style("font-family", "Raleway")
+            .style("font-family", "Varela Round")
             .style("font-weight", 400)
             .style("fill", function(d) { console.log('from fill: ', d); return fill(d.averageSentiment); })
             .attr("text-anchor", "middle")
@@ -59,7 +59,8 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
 
       d3.layout.cloud().size([600, 600])
         .words(myWords)
-        .font("Raleway")
+        .rotate(function() { return (~~(Math.random() * 4) - 3) * 30; })
+        .font("Varela Round")
         .fontSize(function(d) { return d.frequency; })
         .fontWeight(function() { return 400; })
         .text(function(d) { return d.text; })
