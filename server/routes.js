@@ -186,7 +186,7 @@ var pathHandlers = {
           }
         })
         .catch(function(err) {
-          console.error(err);
+          console.log( err );
           res.sendStatus(500);
         });
     }
