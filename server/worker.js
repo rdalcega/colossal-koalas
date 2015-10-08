@@ -9,6 +9,8 @@ var paths = require( '../paths.js' );
 
 new cron( '* * * * * *', function( ) {
   var files = fs.readdirSync( '/app/server/queue' );
+  console.log( 'FILES IN /app/server/queue: ' + files );
+  console.log( 'NUMBER OF FILES IN app/server/queue ' + files.length );
   if( !( files.length > 0 ) ) {
     console.log( 'No files in ' + '/app/server/queue' );
     return;
