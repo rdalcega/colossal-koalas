@@ -65,7 +65,9 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
         // .rotate(function() { return ~~(Math.random() * 2) * 90; })
         .font("Raleway")
         // .fontSize(function(d) { return d.frequency; })
-        .fontSize(function(d) { return 20; })
+        .fontSize(function(d) {
+          console.log(d);
+          return 20; })
         .on("end", draw)
         .start();
 
