@@ -63,6 +63,7 @@ Word.schema(schema);
 // {User.setEntries, User.getEntries}.
 Entry.belongsTo(User);
 User.hasMany(Entry);
+
 Word.belongsTo(User);
 User.hasMany(Word);
 

@@ -126,7 +126,7 @@ exports.Word = {
 
     frequency: Sequelize.INTEGER,
 
-    emotion: Sequalize.INTEGER,
+    emotion: Sequelize.INTEGER,
 
     id: {
 

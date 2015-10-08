@@ -229,20 +229,25 @@ var pathHandlers = {
       })
       .then(function(user) {
         if (user) {
+
           db.Word.findAll( { where:
             { emotion: req.params.emotion,
               userId: user.id
             },
             order: [['frequency', 'DESC']]
+          })
+          .then(function(words) {
+            if (words) {
+              res.status(200).send(words);
+            } else {
+              res.sendStatus(400);
+            }
+          })
+          .catch(function(error) {
+            res.status(400).send(error);
+
           });
 
-        } else {
-          res.sendStatus(400);
-        }
-      })
-      .then(function(words) {
-        if (words) {
-          res.status(200).send(words);
         } else {
           res.sendStatus(400);
         }
