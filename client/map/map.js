@@ -61,7 +61,7 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
         .words(myWords)
         .rotate(function() { return ~~(Math.random()*2) * 90; })
         .font("Varela Round")
-        .fontSize(function(d) { return d.frequency*1.25; })
+        .fontSize(function(d) { return d.frequency; })
         .fontWeight(function() { return 400; })
         .text(function(d) { return d.text; })
         .on("end", draw) //draw is passed in two objects, an array of the word objects and their positions, and the bounds
