@@ -234,7 +234,8 @@ var pathHandlers = {
             { emotion: req.params.emotion,
               userId: user.id
             },
-            order: [['frequency', 'DESC']]
+            order: [['frequency', 'DESC']],
+            attributes: ['word', 'frequency', 'averageSentiment']
           })
           .then(function(words) {
             if (words) {
