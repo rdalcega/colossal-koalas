@@ -7,7 +7,7 @@ var alchemyapi = new AlchemyAPI( '73ad3b222a6bcb7a40192e87eb2a393469e08fcf' );
 var stopwords = require('./assets/stopwords.js');
 
 new cron( '* * * * * *', function( ) {
-  var files = fs.readdirSync( './queue/' );
+  var files = fs.readdirSync( 'server/queue' );
   if( !( files.length > 0 ) ) {
     return;
   }
@@ -18,8 +18,8 @@ new cron( '* * * * * *', function( ) {
     }
   }
 
-  var data = JSON.parse( fs.readFileSync( './queue/' + filename, 'utf8' ) );
-  fs.unlink( './queue/' + filename );
+  var data = JSON.parse( fs.readFileSync( 'server/queue/' + filename, 'utf8' ) );
+  fs.unlink( 'server/queue/' + filename );
   alchemyapi.keywords('text', data.text, {sentiment: true}, function keywordsCallback( keywordsJSON ) {
     data.text = data.text.replace(/[\.\,\:\;\'\"\?\!']/g, '');
     if( keywordsJSON.status && keywordsJSON.status === 'ERROR' ) {
