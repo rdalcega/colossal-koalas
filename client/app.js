@@ -1,8 +1,10 @@
 var app = angular.module('greenfeels',
-  ['greenfeels.services', 'greenfeels.home', 'greenfeels.journal', 'greenfeels.auth','greenfeels.graph','ui.router', 'ngAnimate']);
+  ['greenfeels.services', 'greenfeels.home', 'greenfeels.journal', 'greenfeels.auth','greenfeels.graph', 'greenfeels.map', 'ui.router', 'ngAnimate']);
 
 app.config(['$stateProvider', '$urlRouterProvider',
   function($stateProvider, $urlRouterProvider) {
+
+    //HERE IS A COMMENT
 
     $stateProvider
       .state('home', {
@@ -92,6 +94,51 @@ app.config(['$stateProvider', '$urlRouterProvider',
 
         data: {
           //change back later
+          requireLogin: true //authentication is required to access this state
+        }
+      })
+      .state('map', {
+        url: '/map',
+
+        views: {
+          nav: {
+            templateUrl: './nav/nav.html',
+            controller: 'AuthController'
+          },
+
+          page: {
+            templateUrl: './map/map.html',
+            controller: 'MapController'
+          }
+        },
+
+        data: {
+          requireLogin: true //authentication is required to access this state
+        }
+      })
+      .state('map.initial', {
+        // url: '/map',
+
+        views: {
+          initial: {
+            templateUrl: './map/map.init.html',
+          }
+        },
+
+        data: {
+          requireLogin: true //authentication is required to access this state
+        }
+      })
+      .state('map.selected', {
+        // url: '/map',
+
+        views: {
+          selected: {
+            templateUrl: './map/map.selected.html',
+          }
+        },
+
+        data: {
           requireLogin: true //authentication is required to access this state
         }
       })
