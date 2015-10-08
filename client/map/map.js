@@ -24,8 +24,8 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
       var fill = d3.scale.linear()
         .domain([-1, 0, 1])
         // .range(["#E51800", "#740F5D", "#0006BF"]); //red/purple/blue
-        .range(["#c23423", "#6a1958", "#1d22a2"]); //duller red/purple/blue
-        // .range(["#e05276", "#23c29b"]); //matching moodlet, original purple is #9952e0, twitter yellow is E2BE40
+        // .range(["#c23423", "#6a1958", "#1d22a2"]); //duller red/purple/blue
+        .range(["#e05276", "#23c29b"]); //matching moodlet, original purple is #9952e0, twitter yellow is E2BE40
 
       var fontSize = d3.scale.linear()
         .domain([1, 40])
