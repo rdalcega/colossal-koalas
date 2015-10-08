@@ -33,12 +33,9 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
             .data(words)
           .enter().append("text")
             // .text(function(d) { return d.word; })
-            .text(function(d) {
-              console.log(d);
-              return 'banana';
-            })
+            .text(function(d) { return d.text; })
             // .style("font-size", function(d) { return d.frequency + "px"; })// change this to be dependent on data.frequency
-            .style("font-size", function(d) { return '20px'; })
+            .style("font-size", function(d) { return d.frequency + "px"; })
             .style("font-family", "Raleway")
             .style("fill", function(d) { return fill(d.averageSentiment); }) //change this to be data.averageSentiment
             .attr("text-anchor", "middle")
@@ -65,12 +62,8 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
         // .rotate(function() { return ~~(Math.random() * 2) * 90; })
         .font("Raleway")
         // .fontSize(function(d) { return d.frequency; })
-        .fontSize(function(d) {
-          console.log(d);
-          return d.frequency; })
-        .text(function(d) {
-          return d.word;
-        })
+        .fontSize(function(d) { return d.frequency; })
+        .text(function(d) { return d.word; })
         .on("end", draw)
         .start();
 
