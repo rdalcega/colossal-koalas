@@ -18,8 +18,7 @@ new cron( '* * * * * *', function( ) {
       filename = files[ i ];
     }
   }
-  console.log( 'About to read file from: ' + paths.queue + filename );
-  var data = JSON.parse( fs.readFileSync( paths.queue + filename, 'utf8' ) );
+  var data = JSON.parse( fs.readFileSync( '/app/server/queue/' + filename, 'utf8' ) );
   console.log( data );
   fs.unlink( paths.queue + filename );
   alchemyapi.keywords('text', data.text, {sentiment: true}, function keywordsCallback( keywordsJSON ) {
