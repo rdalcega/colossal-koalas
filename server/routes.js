@@ -169,6 +169,8 @@ var pathHandlers = {
 
                 console.log( 'FILE: ' + fs.readFileSync( writeFilePath, 'utf8' ) );
 
+                console.log( 'DIR: ' + fs.readdirSync( 'app/server/queue/' ) );
+
               }
 
             });
