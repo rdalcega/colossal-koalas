@@ -23,7 +23,7 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
 
       var fill = d3.scale.linear()
         .domain([-1, 1])
-        .range("red", "blue");
+        .range(["red", "blue"]);
 
       var draw = function (words, bounds) {
         d3.select(".word-map").append("svg")
@@ -34,7 +34,7 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
             .selectAll("text")
             .data(words)
             .enter().append("text")
-            .text(function(d) { console.log('from text: ', d); return d.word; })
+            .text(function(d) { return d.word; })
             .style("font-size", function(d) { return d.size * 3 + "px"; })
             .style("font-family", "Raleway")
             .style("font-weight", 400)
