@@ -33,7 +33,10 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
             .data(words)
           .enter().append("text")
             // .text(function(d) { return d.word; })
-            .text(function(d) { return 'banana'; })
+            .text(function(d) {
+              console.log(d);
+              return 'banana';
+            })
             // .style("font-size", function(d) { return d.frequency + "px"; })// change this to be dependent on data.frequency
             .style("font-size", function(d) { return '20px'; })
             .style("font-family", "Raleway")
