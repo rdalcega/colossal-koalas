@@ -22,9 +22,9 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
       d3.selectAll(".word-map > *").remove();
 
       var fill = d3.scale.linear()
-        .domain([-1, 1])
+        .domain([-1, 0, 1])
         // .range(["#E51800", "#740F5D", "#0006BF"]); red/purple/blue
-        .range(["#e05276", "#23c29b"]); //matching moodlet, original purple is #9952e0
+        .range(["#e05276", "#E2BE40", "#23c29b"]); //matching moodlet, original purple is #9952e0
 
       var fontSize = d3.scale.linear()
         .domain([1, 40])
