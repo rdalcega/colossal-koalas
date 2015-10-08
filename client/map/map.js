@@ -56,7 +56,7 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
       //       .start();
       //   });
 
-      var myWords = Entries.getWords(emotion);
+      var myWords = Entries.getWordsTest(emotion);
 
       d3.layout.cloud().size([600, 600])
         .words(myWords)

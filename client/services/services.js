@@ -106,7 +106,7 @@ angular.module('greenfeels.services', [])
     };
   };
 
-  var getWords = function(emojiNumber) {
+  var getWordsTest = function(emojiNumber) {
 
     return [
       {
