@@ -378,15 +378,12 @@ circle {
 /* Map page */
 
 svg {
- /* height: 100%;
-  width: 100%;*/
   display: inline-block;
-  float: left;
+  margin-left: 30%;
 }
 
 g {
   height: 100%;
   width: 100%;
   display: inline-block;
-  float: left;
 }

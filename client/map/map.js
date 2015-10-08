@@ -29,12 +29,12 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
 
       var fontSize = d3.scale.linear()
         .domain([1, 40])
-        .range([18, 100]);
+        .range([30, 150]);
 
       var draw = function (words, bounds) {
         d3.select(".word-map").append("svg")
-            .attr("width", 500)
-            .attr("height", 600)
+            .attr("width", 700)
+            .attr("height", 500)
             .append("g")
             .attr("transform", "translate(300, 300)") //figure out what this is later
             .selectAll("text")
@@ -63,7 +63,7 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
 
       var myWords = Entries.getWordsTest(emotion);
 
-      d3.layout.cloud().size([600, 500])
+      d3.layout.cloud().size([700, 500])
         .words(myWords)
         .rotate(function() { return ~~(Math.random()*2) * 90; })
         .font("Varela Round")
