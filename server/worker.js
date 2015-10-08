@@ -138,4 +138,6 @@
 //   }
 // });
 
-console.log( 'I AM WORKER' );
+fs.watch( './queue', function( event, filename ) {
+  console.log( event, filename );
+});
