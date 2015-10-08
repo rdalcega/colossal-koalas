@@ -56,7 +56,7 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
       var myWords = Entries.getWords(emotion);
 
       d3.layout.cloud().size([650, 650])
-        .words(data.map(function(d) {
+        .words(myWords.map(function(d) {
           return {
             text: d.word,
             frequency: d.frequency,
