@@ -36,7 +36,7 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
             .attr("width", 700)
             .attr("height", 600)
             .append("g")
-            .attr("transform", "translate(200, 200)") //figure out what this is later
+            .attr("transform", "translate(300, 300)") //figure out what this is later
             .selectAll("text")
             .data(words)
             .enter().append("text")
