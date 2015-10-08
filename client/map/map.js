@@ -63,7 +63,7 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
         .font("Raleway")
         .fontSize(function(d) { return d.frequency; })
         .text(function(d) { return d.word; })
-        .on("end", draw(myWords))
+        .on("end", draw)
         .start();
 
     };
