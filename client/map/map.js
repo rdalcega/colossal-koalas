@@ -24,7 +24,7 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
         .range("red", "blue");
 
       var draw = function (words) {
-        d3.select("body").append("svg")
+        d3.select(".map").append("svg")
             .attr("width", 300)
             .attr("height", 300)
           .append("g")
