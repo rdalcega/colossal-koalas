@@ -24,7 +24,7 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
       var fill = d3.scale.linear()
         .domain([-1, 0, 1])
         // .range(["#E51800", "#740F5D", "#0006BF"]); red/purple/blue
-        .range(["#bd52e0", "#9952e0", "#23c29b"]); //matching moodlet, original purple is #9952e0
+        .range(["#e05276", "#9952e0", "#23c29b"]); //matching moodlet, original purple is #9952e0
 
       var fontSize = d3.scale.linear()
         .domain([1, 40])
