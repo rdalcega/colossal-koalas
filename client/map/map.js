@@ -24,7 +24,7 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
         .range("red", "blue");
 
       var draw = function (words) {
-        d3.select(".map").append("svg")
+        d3.select(".word-map").append("svg")
             .attr("width", 300)
             .attr("height", 300)
           .append("g")
@@ -33,10 +33,11 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
             .data(words)
           .enter().append("text")
             // .text(function(d) { return d.word; })
-            .text(function(d) { return d.text; })
+            .text(function(d) { console.log(d); return d.text; })
             // .style("font-size", function(d) { return d.frequency + "px"; })// change this to be dependent on data.frequency
             .style("font-size", function(d) { return d.size + "px"; })
             .style("font-family", "Raleway")
+            .style("font-weight", 700)
             .style("fill", function(d) { return fill(d.averageSentiment); }) //change this to be data.averageSentiment
             .attr("text-anchor", "middle")
             .attr("transform", function(d) {
