@@ -65,3 +65,7 @@ Several useful developer scripts are configured in `gulpfile.js`. You must confi
 ### Roadmap
 
 View the project roadmap [here](https://github.com/colossal-koalas/colossal-koalas/issues)
+
+//////////////////////////////////////////////////////// PHOSPHORESCENT LLAMA'S ADDITIONS//////////////////////////////////
+
+To test, must be deployed to heroku, and token_secret must be set as one of the config variables (in heroku settings). Additionally, you must use the Heroku PostGres CLI to create the moodlet and moodlet_test schemas since the app does not do that initialization on its own.

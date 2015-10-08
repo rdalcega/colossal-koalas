@@ -103,8 +103,70 @@ angular.module('greenfeels.services', [])
       .then(function(resp) {
         return resp.data;
       });
-    }
-  }
+    };
+  };
+
+  var getWordsTest = function(emojiNumber) {
+
+    return [
+      {
+        word: 'love',
+        averageSentiment: 0.90898674876,
+        frequency: 3
+      },
+      {
+        word: 'Rodrigo',
+        averageSentiment: 0.75,
+        frequency: 10
+      },
+      {
+        word: 'banana',
+        averageSentiment: 0.6,
+        frequency: 11
+      },
+      {
+        word: 'nonvegan',
+        averageSentiment: -0.9999999999,
+        frequency: 6
+      },
+      {
+        word: 'meat',
+        averageSentiment: -0.7,
+        frequency: 2
+      },
+      {
+        word: 'bicycle',
+        averageSentiment: 0.4,
+        frequency: 7
+      },
+      {
+        word: 'Korea',
+        averageSentiment: 0.3,
+        frequency: 2
+      },
+      {
+        word: 'HackReactor',
+        averageSentiment: 0.8,
+        frequency: 20
+      },
+      {
+        word: 'Tempest',
+        averageSentiment: 1,
+        frequency: 20
+      },
+      {
+        word: 'pro-tip',
+        averageSentiment: -0.6,
+        frequency: 14
+      },
+      {
+        word: 'sleep',
+        averageSentiment: -0.1,
+        frequency: 8
+      }
+    ];
+
+  };
 
   var getEntry = methodEntry('GET');
   var updateEntry = methodEntry('PUT');
@@ -123,12 +185,27 @@ angular.module('greenfeels.services', [])
       data: post
     });
   };
+
+  var getWords = function(emotion) {
+    var username = $window.localStorage.getItem('moodlet.username');
+    if (!username) {
+      return;
+    }
+    return $http({
+      method: 'GET',
+      url: '/api/users/' + username + '/words/' + emotion,
+      headers: {'x-access-token': $window.localStorage.getItem('moodlet')}
+    });
+  };
+
   return {
     getAll: getAll,
     addEntry: addEntry,
     getEntry: getEntry,
     updateEntry: updateEntry,
-    deleteEntry: deleteEntry
+    deleteEntry: deleteEntry,
+    getWords: getWords,
+    getWordsTest: getWordsTest
   };
 }])
 
@@ -188,7 +265,7 @@ angular.module('greenfeels.services', [])
     // of an <img> tag.
     var getTwemojiSrc = function(emotion, size) {
       return urlBase + size + 'x' + size + '/' + imgs[emotion];
-    }
+    };
 
     return {
       getTwemojiSrc: getTwemojiSrc
