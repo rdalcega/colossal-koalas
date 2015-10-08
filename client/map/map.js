@@ -23,7 +23,8 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
 
       var fill = d3.scale.linear()
         .domain([-1, 0, 1])
-        .range(["#E51800", "#740F5D", "#0006BF"]); //red/purple/blue
+        // .range(["#E51800", "#740F5D", "#0006BF"]); //red/purple/blue
+        .range(["#c23423", "#6a1958", "#1d22a2"]); //duller red/purple/blue
         // .range(["#e05276", "#23c29b"]); //matching moodlet, original purple is #9952e0, twitter yellow is E2BE40
 
       var fontSize = d3.scale.linear()
@@ -32,7 +33,7 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
 
       var draw = function (words, bounds) {
         d3.select(".word-map").append("svg")
-            .attr("width", 700)
+            .attr("width", 500)
             .attr("height", 600)
             .append("g")
             .attr("transform", "translate(300, 300)") //figure out what this is later
@@ -62,7 +63,7 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
 
       var myWords = Entries.getWordsTest(emotion);
 
-      d3.layout.cloud().size([700, 600])
+      d3.layout.cloud().size([600, 500])
         .words(myWords)
         .rotate(function() { return ~~(Math.random()*2) * 90; })
         .font("Varela Round")
