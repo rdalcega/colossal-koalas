@@ -27,7 +27,7 @@ module.exports = function() {
       canvas = cloudCanvas,
 
       //NAOMI JACOBS ADDING THINGS HERE TO LET DATA PROPERTIES PERSIST TO THE DATA FUNCTION
-      properties = cloudProperties;
+      averageSentiment = cloudAverageSentiment;
 
   cloud.canvas = function(_) {
     return arguments.length ? (canvas = functor(_), cloud) : canvas;
@@ -50,7 +50,7 @@ module.exports = function() {
           d.padding = padding.call(this, d, i);
 
           //I added this here so that the resultant word that gets passed along will have access to its original props
-          d.properties = properties.call(this, d, i);
+          d.averageSentiment = averageSentiment.call(this, d, i);
           return d;
         }).sort(function(a, b) { return b.size - a.size; });
 
@@ -216,8 +216,8 @@ function cloudText(d) {
 }
 
 //I added cloudProperties here to retain the original information in the passed-in word
-function cloudProperties(d) {
-  return d;
+function cloudAverageSentiment(d) {
+  return d.averageSentiment;
 }
 
 function cloudFont() {
