@@ -23,22 +23,28 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
 
       var fill = d3.scale.linear()
         .domain([-1, 0, 1])
-        .range(["#E51800", "#740F5D", "#0006BF"]);
+        // .range(["#E51800", "#740F5D", "#0006BF"]); //red/purple/blue
+        .range(["#c23423", "#6a1958", "#1d22a2"]); //duller red/purple/blue
+        // .range(["#e05276", "#23c29b"]); //matching moodlet, original purple is #9952e0, twitter yellow is E2BE40
+
+      var fontSize = d3.scale.linear()
+        .domain([1, 40])
+        .range([30, 150]);
 
       var draw = function (words, bounds) {
         d3.select(".word-map").append("svg")
             .attr("width", 700)
-            .attr("height", 700)
+            .attr("height", 600)
             .append("g")
-            .attr("transform", "translate(500, 300)") //figure out what this is later
+            .attr("transform", "translate(300, 200)") //figure out what this is later
             .selectAll("text")
             .data(words)
             .enter().append("text")
             .text(function(d) { return d.text; })
-            .style("font-size", function(d) { return d.size * 3 + "px"; })
+            .style("font-size", function(d) { return fontSize(d.frequency); })
             .style("font-family", "Varela Round")
             .style("font-weight", 400)
-            .style("fill", function(d) { console.log('from fill: ', d); return fill(d.averageSentiment); })
+            .style("fill", function(d) { return fill(d.averageSentiment); })
             .attr("text-anchor", "middle")
             .attr("transform", function(d) {
               return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
@@ -57,14 +63,13 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
 
       var myWords = Entries.getWordsTest(emotion);
 
-      d3.layout.cloud().size([600, 600])
+      d3.layout.cloud().size([700, 500])
         .words(myWords)
         .rotate(function() { return ~~(Math.random()*2) * 90; })
         .font("Varela Round")
-        .fontSize(function(d) { return d.frequency*1.25; })
+        .fontSize(function(d) { return fontSize(d.frequency); })
         .fontWeight(function() { return 400; })
         .text(function(d) { return d.text; })
-        .padding(3)
         .on("end", draw) //draw is passed in two objects, an array of the word objects and their positions, and the bounds
         .start();
 

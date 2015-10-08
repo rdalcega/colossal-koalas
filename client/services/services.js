@@ -201,7 +201,7 @@ angular.module('greenfeels.services', [])
       },
       {
         text: 'HackReactor',
-        averageSentiment: 0.01,
+        averageSentiment: 1,
         frequency: 20
       },
       {
