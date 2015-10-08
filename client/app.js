@@ -10,7 +10,7 @@ app.config(['$stateProvider', '$urlRouterProvider',
       .state('home', {
         // Parent state of home; load home.html, set controller, use initial state
         url: '/',
-        
+
         views: {
           nav: {
             templateUrl: './nav/nav.html',
@@ -57,9 +57,9 @@ app.config(['$stateProvider', '$urlRouterProvider',
       })
       .state('journal', {
         url: '/journal', // optional
-        
+
         views: {
-          
+
           nav: {
             templateUrl: './nav/nav.html',
             controller: 'AuthController'
@@ -78,9 +78,9 @@ app.config(['$stateProvider', '$urlRouterProvider',
       })
       .state('graph', {
         url: '/graph', // optional
-        
+
         views: {
-          
+
           nav: {
             templateUrl: './nav/nav.html',
             controller: 'AuthController'
@@ -144,9 +144,9 @@ app.config(['$stateProvider', '$urlRouterProvider',
       })
       .state('signin', {
         url: '/signin',
-        
+
         views: {
-        
+
           page: {
             templateUrl: './auth/signin.html',
             controller: 'AuthController'
@@ -159,9 +159,9 @@ app.config(['$stateProvider', '$urlRouterProvider',
       })
       .state('signup', {
         url: '/signup',
-        
+
         views: {
-        
+
           page: {
             templateUrl: './auth/signup.html',
             controller: 'AuthController'
