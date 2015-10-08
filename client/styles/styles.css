@@ -378,9 +378,11 @@ circle {
 /* Map page */
 
 svg {
-  margin: 0 auto;
+  display: inline-block;
+  float: left;
 }
 
-g{
-  
+g {
+  display: inline-block;
+  float: left;
 }
