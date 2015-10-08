@@ -110,57 +110,112 @@ angular.module('greenfeels.services', [])
 
     return [
       {
-        word: 'love',
+        text: 'love',
         averageSentiment: 0.90898674876,
         frequency: 3
       },
       {
-        word: 'Rodrigo',
+        text: 'Rodrigo',
         averageSentiment: 0.75,
         frequency: 10
       },
       {
-        word: 'banana',
+        text: 'banana',
         averageSentiment: 0.6,
         frequency: 11
       },
       {
-        word: 'nonvegan',
+        text: 'nonvegan',
         averageSentiment: -0.9999999999,
         frequency: 6
       },
       {
-        word: 'meat',
+        text: 'meat',
         averageSentiment: -0.7,
         frequency: 2
       },
       {
-        word: 'bicycle',
+        text: 'bicycle',
         averageSentiment: 0.4,
         frequency: 7
       },
       {
-        word: 'Korea',
+        text: 'Korea',
         averageSentiment: 0.3,
         frequency: 2
       },
       {
-        word: 'HackReactor',
+        text: 'HackReactor',
         averageSentiment: 0.8,
         frequency: 20
       },
       {
-        word: 'Tempest',
+        text: 'Tempest',
         averageSentiment: 1,
         frequency: 20
       },
       {
-        word: 'pro-tip',
+        text: 'pro-tip',
         averageSentiment: -0.6,
         frequency: 14
       },
       {
-        word: 'sleep',
+        text: 'sleep',
+        averageSentiment: -0.1,
+        frequency: 8
+      },
+      {
+        text: 'love',
+        averageSentiment: 0.90898674876,
+        frequency: 3
+      },
+      {
+        text: 'Rodrigo',
+        averageSentiment: 0.75,
+        frequency: 10
+      },
+      {
+        text: 'banana',
+        averageSentiment: 0.6,
+        frequency: 11
+      },
+      {
+        text: 'nonvegan',
+        averageSentiment: -0.9999999999,
+        frequency: 6
+      },
+      {
+        text: 'meat',
+        averageSentiment: -0.7,
+        frequency: 2
+      },
+      {
+        text: 'bicycle',
+        averageSentiment: 0.4,
+        frequency: 7
+      },
+      {
+        text: 'Korea',
+        averageSentiment: 0.3,
+        frequency: 2
+      },
+      {
+        text: 'HackReactor',
+        averageSentiment: 0.8,
+        frequency: 20
+      },
+      {
+        text: 'Tempest',
+        averageSentiment: 1,
+        frequency: 20
+      },
+      {
+        text: 'pro-tip',
+        averageSentiment: -0.6,
+        frequency: 14
+      },
+      {
+        text: 'sleep',
         averageSentiment: -0.1,
         frequency: 8
       }

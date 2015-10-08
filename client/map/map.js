@@ -36,7 +36,7 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
             .selectAll("text")
             .data(words)
             .enter().append("text")
-            .text(function(d) { return d.word; })
+            .text(function(d) { return d.text; })
             .style("font-size", function(d) { return d.size * 3 + "px"; })
             .style("font-family", "Raleway")
             .style("font-weight", 400)
@@ -64,7 +64,7 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
         .font("Raleway")
         .fontSize(function(d) { return d.frequency; })
         .fontWeight(function() { return 400; })
-        .text(function(d) { return d.word; })
+        .text(function(d) { return d.text; })
         .on("end", draw) //draw is passed in two objects, an array of the word objects and their positions, and the bounds
         .start();
 
