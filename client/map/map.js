@@ -61,13 +61,20 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
       var myWords = Entries.getWordsTest(emotion);
 
       d3.layout.cloud().size([600, 600])
-        .words(myWords)
+        .words(myWords.map(function(word) {
+
+          return {
+            word: word.word,
+            frequency: word.frequency,
+            averageSentiment: word.averageSentiment
+          };
+
+        }))
         // .rotate(function() { return ~~(Math.random() * 2) * 90; })
         .font("Raleway")
         // .fontSize(function(d) { return d.frequency; })
         .fontSize(function(d) { return d.frequency; })
         .text(function(d) { return d.word; })
-        .fill(function(d) { return fill(d.averageSentiment); })
         .on("end", draw)
         .start();
 
