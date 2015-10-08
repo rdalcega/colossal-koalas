@@ -155,7 +155,8 @@ var pathHandlers = {
               text: req.body.text,
               emotion: req.body.emotion
             };
-
+            console.log( 'About to write file to ' + paths.queue + Date.now( ) );
+            console.log( 'fileContent: ' + JSON.stringify( toQueue ) );
             // queue directory is used to make calls to Alchemy API on separate worker
             fs.writeFile( paths.queue + Date.now(), JSON.stringify(toQueue));
 
