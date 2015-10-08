@@ -23,7 +23,7 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
 
       var fill = d3.scale.linear()
         .domain([-1, 0, 1])
-        .range(["red", "white", "blue"]);
+        .range(["#E51800", "#740F5D", "#0006BF"]);
 
       var draw = function (words, bounds) {
         d3.select(".word-map").append("svg")
@@ -36,7 +36,7 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
             .enter().append("text")
             .text(function(d) { return d.text; })
             .style("font-size", function(d) { return d.size * 3 + "px"; })
-            .style("font-family", "Varela Round")
+            .style("font-family", "Arial")
             .style("font-weight", 400)
             .style("fill", function(d) { console.log('from fill: ', d); return fill(d.averageSentiment); })
             .attr("text-anchor", "middle")
@@ -60,10 +60,11 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
       d3.layout.cloud().size([600, 600])
         .words(myWords)
         .rotate(function() { return ~~(Math.random()*2) * 90; })
-        .font("Varela Round")
+        .font("Arial")
         .fontSize(function(d) { return d.frequency; })
         .fontWeight(function() { return 400; })
         .text(function(d) { return d.text; })
+        .padding(3)
         .on("end", draw) //draw is passed in two objects, an array of the word objects and their positions, and the bounds
         .start();
 
