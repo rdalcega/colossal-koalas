@@ -32,14 +32,16 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
           .selectAll("text")
             .data(words)
           .enter().append("text")
-            .style("font-size", function(d) { return d.frequency + "px"; })// change this to be dependent on data.frequency
+            // .text(function(d) { return d.word; })
+            .text(function(d) { return 'banana'; })
+            // .style("font-size", function(d) { return d.frequency + "px"; })// change this to be dependent on data.frequency
+            .style("font-size", function(d) { return '20px'; })
             .style("font-family", "Raleway")
             .style("fill", function(d) { return fill(d.averageSentiment); }) //change this to be data.averageSentiment
             .attr("text-anchor", "middle")
             .attr("transform", function(d) {
               return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
-            })
-            .text(function(d) { return d.word; });
+            });
       };
 
       // Entries.getWords(emotion)
@@ -59,8 +61,10 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
         .words(myWords)
         // .rotate(function() { return ~~(Math.random() * 2) * 90; })
         .font("Raleway")
-        .fontSize(function(d) { return d.frequency; })
-        .text(function(d) { return d.word; })
+        // .fontSize(function(d) { return d.frequency; })
+        .fontSize(function(d) { return 20; })
+        // .text(function(d) { return d.word; })
+        .text(function(d) { return 'banana'; })
         .on("end", draw)
         .start();
 
