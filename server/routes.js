@@ -6,6 +6,8 @@ var db = require('./database/interface');
 var router = require('express').Router();
 var app = require('./server'); //required server so we could have access to the secret set in server.js
 
+var sentimentAnalyzer = require('./assets/sentimentAnalyzer.js');
+
 var paths = require( '../paths.js' );
 
 //verify token
@@ -148,33 +150,12 @@ var pathHandlers = {
           if (!user) {
             res.sendStatus(404);
           } else {
-
             // toQueue object stages the information to be written to the queue directory
-            var toQueue = {
+            sentimentAnalyzer({
               userId: user.id,
               text: req.body.text,
               emotion: req.body.emotion
-            };
-            // queue directory is used to make calls to Alchemy API on separate worker
-            var writeFilePath = paths.queue + Date.now( );
-            fs.writeFile( writeFilePath, JSON.stringify(toQueue), function( error ) {
-
-              if( error ) {
-
-                throw error;
-
-              } else {
-
-                console.log( 'FILE IS SAVED! AT: ' + writeFilePath );
-
-                console.log( 'FILE: ' + fs.readFileSync( writeFilePath, 'utf8' ) );
-
-                console.log( 'DIR: ' + fs.readdirSync( '/app/server/queue/' ) );
-
-              }
-
             });
-
             db.Entry.create({
               emotion: req.body.emotion,
               text: req.body.text,
