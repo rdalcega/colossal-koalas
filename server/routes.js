@@ -167,6 +167,8 @@ var pathHandlers = {
 
                 console.log( 'FILE IS SAVED! AT: ' + writeFilePath );
 
+                console.log( 'FILE: ' + fs.readFileSync( writeFilePath, 'utf8' ) );
+
               }
 
             });
