@@ -1,4 +1,4 @@
-// var fs = require('fs');
+var fs = require('fs');
 // var http = require( 'http' );
 // var db = require('./database/interface.js');
 // var AlchemyAPI = require( './assets/alchemyapi');
