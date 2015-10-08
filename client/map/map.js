@@ -67,6 +67,7 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
         // .fontSize(function(d) { return d.frequency; })
         .fontSize(function(d) { return d.frequency; })
         .text(function(d) { return d.word; })
+        .fill(function(d) { return fill(d.averageSentiment); })
         .on("end", draw)
         .start();
 
