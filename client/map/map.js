@@ -34,7 +34,7 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
       var draw = function (words, bounds) {
         d3.select(".word-map").append("svg")
             .attr("width", 700)
-            .attr("height", 300)
+            .attr("height", 400)
             .append("g")
             .attr("transform", "translate(300, 300)") //figure out what this is later
             .selectAll("text")
@@ -63,7 +63,7 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
 
       var myWords = Entries.getWordsTest(emotion);
 
-      d3.layout.cloud().size([700, 300])
+      d3.layout.cloud().size([700, 400])
         .words(myWords)
         .rotate(function() { return ~~(Math.random()*2) * 90; })
         .font("Varela Round")

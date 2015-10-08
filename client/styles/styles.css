@@ -379,10 +379,10 @@ circle {
 
 svg {
   display: inline-block;
-  /*margin-left: 30%;*/
+  margin-left: 30%;
 }
 
 g {
-  margin-left: 30%;
+  /*margin-left: 30%;*/
   display: inline-block;
 }
