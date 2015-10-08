@@ -59,7 +59,7 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
 
       d3.layout.cloud().size([600, 600])
         .words(myWords)
-        .rotate(function() { return (~~(Math.random() * 4) - 3) * 30; })
+        .rotate(function() { return ~~(Math.random()*2) * 90; })
         .font("Varela Round")
         .fontSize(function(d) { return d.frequency; })
         .fontWeight(function() { return 400; })
