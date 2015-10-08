@@ -30,7 +30,7 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
       var fontSize = d3.scale.linear()
         .domain([1, 40])
         .range([30, 150]);
-
+        
       // Entries.getWords(emotion)
       //   .then(function(data) {
       //     d3.layout.cloud().size([650, 650])
@@ -46,7 +46,7 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
       d3.layout.cloud().size([700, 500])
         .words(myWords)
         .rotate(function() { return ~~(Math.random()*2) * 90; })
-        .font("Poiret One")
+        .font("Varela Round")
         .fontSize(function(d) { return fontSize(d.frequency); })
         .fontWeight(function() { return 400; })
         .text(function(d) { return d.text; })
@@ -64,7 +64,7 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
             .enter().append("text")
             .text(function(d) { return d.text; })
             .style("font-size", function(d) { return fontSize(d.frequency); })
-            .style("font-family", "Poiret One")
+            .style("font-family", "Varela Round")
             .style("font-weight", 400)
             .style("fill", function(d) { return fill(d.averageSentiment); })
             .attr("text-anchor", "middle")
