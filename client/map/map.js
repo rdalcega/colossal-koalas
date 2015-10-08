@@ -29,16 +29,16 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
         d3.select(".word-map").append("svg")
             .attr("width", 600)
             .attr("height", 600)
-          .append("g")
+            .append("g")
             .attr("transform", "translate(150,150)") //figure out what this is later
-          .selectAll("text")
+            .selectAll("text")
             .data(words)
-          .enter().append("text")
+            .style("fill", function(d) { console.log(d); return fill(d.averageSentiment); })
+            .enter().append("text")
             .text(function(d) { console.log(d); return d.text; })
             .style("font-size", function(d) { return d.size * 3 + "px"; })
             .style("font-family", "Raleway")
             .style("font-weight", 400)
-            .style("fill", function(d) { return fill(d.averageSentiment); })
             .attr("text-anchor", "middle")
             .attr("transform", function(d) {
               return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
