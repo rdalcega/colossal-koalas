@@ -32,14 +32,14 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
           .selectAll("text")
             .data(words)
           .enter().append("text")
-            .style("font-size", function(d) { return d.frequency; })// change this to be dependent on data.frequency
+            .style("font-size", function(d) { return d.frequency + "px"; })// change this to be dependent on data.frequency
             .style("font-family", "Raleway")
             .style("fill", function(d) { return fill(d.averageSentiment); }) //change this to be data.averageSentiment
             .attr("text-anchor", "middle")
             .attr("transform", function(d) {
               return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
             })
-            .text(function(d) { return d.text; });
+            .text(function(d) { return d.word; });
       };
 
       // Entries.getWords(emotion)
@@ -55,17 +55,11 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
 
       var myWords = Entries.getWords(emotion);
 
-      d3.layout.cloud().size([650, 650])
-        .words(myWords.map(function(d) {
-          return {
-            text: d.word,
-            frequency: d.frequency,
-            averageSentiment: d.averageSentiment
-          };
-        }))
-        .rotate(function() { return ~~(Math.random() * 2) * 90; })
+      d3.layout.cloud().size([600, 600])
+        .words(myWords)
+        // .rotate(function() { return ~~(Math.random() * 2) * 90; })
         .font("Raleway")
-        .fontSize(function(d) { return d.frequency + 'px'; })
+        .fontSize(function(d) { return d.frequency; })
         .on("end", draw)
         .start();
 
