@@ -23,7 +23,7 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
 
       var fill = d3.scale.linear()
         .domain([-1, 0, 1])
-        .range(["red", "white", "blue"]);
+        .range(["#E51800", "#740F5D", "#0006BF"]);
 
       var draw = function (words, bounds) {
         d3.select(".word-map").append("svg")
