@@ -26,8 +26,8 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
         .range(["#E51800", "#740F5D", "#0006BF"]);
 
       var fontSize = d3.scale.linear()
-        .domain([0, 40])
-        .range([14, 40]);
+        .domain([1, 40])
+        .range([14, 60]);
 
       var draw = function (words, bounds) {
         d3.select(".word-map").append("svg")
@@ -63,7 +63,6 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
 
       d3.layout.cloud().size([600, 600])
         .words(myWords)
-        .rotate(function() { return ~~(Math.random()*2) * 90; })
         .font("Varela Round")
         .fontSize(function(d) { return fontSize(d.frequency); })
         .fontWeight(function() { return 400; })
