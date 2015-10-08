@@ -102,9 +102,9 @@ angular.module('greenfeels.services', [])
       })
       .then(function(resp) {
         return resp.data;
-      });      
-    }
-  }
+      });
+    };
+  };
 
   var getWords = function(emojiNumber) {
 
@@ -185,6 +185,19 @@ angular.module('greenfeels.services', [])
       data: post
     });
   };
+
+  var getWords = function(emotion) {
+    var username = $window.localStorage.getItem('moodlet.username');
+    if (!username) {
+      return;
+    }
+    return $http({
+      method: 'GET',
+      url: '/api/users/' + username + '/words/' + emotion,
+      headers: {'x-access-token': $window.localStorage.getItem('moodlet')}
+    });
+  };
+
   return {
     getAll: getAll,
     addEntry: addEntry,
@@ -251,7 +264,7 @@ angular.module('greenfeels.services', [])
     // of an <img> tag.
     var getTwemojiSrc = function(emotion, size) {
       return urlBase + size + 'x' + size + '/' + imgs[emotion];
-    }
+    };
 
     return {
       getTwemojiSrc: getTwemojiSrc
