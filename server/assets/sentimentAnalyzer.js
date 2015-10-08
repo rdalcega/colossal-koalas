@@ -1,9 +1,9 @@
 var fs = require('fs');
 var http = require( 'http' );
-var db = require('./database/interface.js');
-var AlchemyAPI = require( './assets/alchemyapi');
+var db = require('../database/interface.js');
+var AlchemyAPI = require( './alchemyapi');
 var alchemyapi = new AlchemyAPI( '73ad3b222a6bcb7a40192e87eb2a393469e08fcf' );
-var stopwords = require('./assets/stopwords.js');
+var stopwords = require('./stopwords.js');
 
 module.exports = function( data ) {
   alchemyapi.keywords('text', data.text, {sentiment: true}, function keywordsCallback( keywordsJSON ) {
