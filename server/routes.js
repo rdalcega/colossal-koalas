@@ -6,6 +6,8 @@ var db = require('./database/interface');
 var router = require('express').Router();
 var app = require('./server'); //required server so we could have access to the secret set in server.js
 
+var paths = require( '../paths.js' );
+
 //verify token
 function verifyToken(req, res, next) {
   //check post parameters or header or url parameters for token
@@ -155,7 +157,7 @@ var pathHandlers = {
             };
 
             // queue directory is used to make calls to Alchemy API on separate worker
-            fs.writeFile('./queue/' + Date.now(), JSON.stringify(toQueue));
+            fs.writeFile( paths.queue + Date.now(), JSON.stringify(toQueue));
 
             db.Entry.create({
               emotion: req.body.emotion,
