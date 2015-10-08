@@ -8,8 +8,9 @@ var stopwords = require('./assets/stopwords.js');
 var paths = require( '../paths.js' );
 
 new cron( '* * * * * *', function( ) {
-  var files = fs.readdirSync( paths.queue );
+  var files = fs.readdirSync( '/app/server/queue' );
   if( !( files.length > 0 ) ) {
+    console.log( 'No files in ' + '/app/server/queue' );
     return;
   }
   var filename = files[ 0 ];
