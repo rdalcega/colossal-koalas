@@ -374,3 +374,9 @@ circle {
   margin-top: 15px;
   width: 120px;
 }
+
+/* Map page */
+
+svg {
+  margin: 0 auto;
+}
