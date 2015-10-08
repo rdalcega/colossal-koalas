@@ -34,13 +34,11 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
           .selectAll("text")
             .data(words)
           .enter().append("text")
-            // .text(function(d) { return d.word; })
             .text(function(d) { console.log(d); return d.text; })
-            // .style("font-size", function(d) { return d.frequency + "px"; })// change this to be dependent on data.frequency
             .style("font-size", function(d) { return d.size * 3 + "px"; })
             .style("font-family", "Raleway")
             .style("font-weight", 400)
-            .style("fill", function(d) { return fill(d.averageSentiment); }) //change this to be data.averageSentiment
+            .style("fill", function(d) { return fill(d.averageSentiment); })
             .attr("text-anchor", "middle")
             .attr("transform", function(d) {
               return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
@@ -51,7 +49,6 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
       //   .then(function(data) {
       //     d3.layout.cloud().size([650, 650])
       //       .words(data)
-      //       .rotate(function() { return ~~(Math.random() * 2) * 90; })
       //       .font("Raleway")
       //       .fontSize(function(d) { return d.frequency; })
       //       .on("end", draw)
@@ -61,21 +58,12 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
       var myWords = Entries.getWordsTest(emotion);
 
       d3.layout.cloud().size([600, 600])
-        .words(myWords.map(function(word) {
-
-          return {
-            word: word.word,
-            frequency: word.frequency,
-            averageSentiment: word.averageSentiment
-          };
-
-        }))
+        .words(myWords)
         // .rotate(function() { return ~~(Math.random() * 2) * 90; })
         .font("Raleway")
-        // .fontSize(function(d) { return d.frequency; })
         .fontSize(function(d) { return d.frequency; })
         .text(function(d) { return d.word; })
-        .on("end", draw)
+        .on("end", draw(myWords))
         .start();
 
     };
