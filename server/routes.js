@@ -238,7 +238,7 @@ var pathHandlers = {
       //   }]
       // )
       db.User.findOne( { where: {
-        username: req.params.username
+        name: req.params.username
         }
       })
       .then(function(user) {
