@@ -19,6 +19,8 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
 
     var makeMap = function (emotion) {
 
+      d3.selectAll(".word-map > *").remove();
+
       var fill = d3.scale.linear()
         .domain([-1, 1])
         .range("red", "blue");
