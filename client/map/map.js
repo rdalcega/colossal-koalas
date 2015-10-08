@@ -30,7 +30,27 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
       var fontSize = d3.scale.linear()
         .domain([1, 40])
         .range([30, 150]);
-        
+
+      var draw = function (words, bounds) {
+        d3.select(".word-map").append("svg")
+            .attr("width", 700)
+            .attr("height", 600)
+            .append("g")
+            .attr("transform", "translate(300, 200)") //figure out what this is later
+            .selectAll("text")
+            .data(words)
+            .enter().append("text")
+            .text(function(d) { return d.text; })
+            .style("font-size", function(d) { return fontSize(d.frequency); })
+            .style("font-family", "Varela Round")
+            .style("font-weight", 400)
+            .style("fill", function(d) { return fill(d.averageSentiment); })
+            .attr("text-anchor", "middle")
+            .attr("transform", function(d) {
+              return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+            });
+      };
+
       // Entries.getWords(emotion)
       //   .then(function(data) {
       //     d3.layout.cloud().size([650, 650])
@@ -53,28 +73,7 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
         .on("end", draw) //draw is passed in two objects, an array of the word objects and their positions, and the bounds
         .start();
 
-      var draw = function (words, bounds) {
-        d3.select(".word-map").append("svg")
-            .attr("width", 700)
-            .attr("height", 600)
-            .append("g")
-            .attr("transform", "translate(300, 300)") //figure out what this is later
-            .selectAll("text")
-            .data(words)
-            .enter().append("text")
-            .text(function(d) { return d.text; })
-            .style("font-size", function(d) { return fontSize(d.frequency); })
-            .style("font-family", "Varela Round")
-            .style("font-weight", 400)
-            .style("fill", function(d) { return fill(d.averageSentiment); })
-            .attr("text-anchor", "middle")
-            .attr("transform", function(d) {
-              return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
-            });
-      };
     };
-
-
 
     function clearSelectedStates() {
       var selected = document.getElementsByClassName('selected-emoji');
