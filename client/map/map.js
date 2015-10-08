@@ -36,7 +36,7 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
             .attr("width", 1200)
             .attr("height", 550)
             .append("g")
-            .attr("transform", "translate(600, 270)") //figure out what this is later
+            .attr("transform", "translate(650, 270)") //figure out what this is later
             .selectAll("text")
             .data(words)
             .enter().append("text")
@@ -51,27 +51,33 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
             });
       };
 
-      // Entries.getWords(emotion)
-      //   .then(function(data) {
-      //     d3.layout.cloud().size([650, 650])
-      //       .words(data)
-      //       .font("Raleway")
-      //       .fontSize(function(d) { return d.frequency; })
-      //       .on("end", draw)
-      //       .start();
-      //   });
+      Entries.getWords(emotion)
+        .then(function(data) {
 
-      var myWords = Entries.getWordsTest(emotion);
+          console.log(data);
 
-      d3.layout.cloud().size([700, 500])
-        .words(myWords)
-        .rotate(function() { return ~~(Math.random()*2) * 90; })
-        .font("Varela Round")
-        .fontSize(function(d) { return fontSize(d.frequency); })
-        .fontWeight(function() { return 400; })
-        .text(function(d) { return d.text; })
-        .on("end", draw) //draw is passed in two objects, an array of the word objects and their positions, and the bounds
-        .start();
+          d3.layout.cloud().size([700, 500])
+            .words(data)
+            .rotate(function() { return ~~(Math.random()*2) * 90; })
+            .font("Varela Round")
+            .fontSize(function(d) { return fontSize(d.frequency); })
+            .fontWeight(function() { return 400; })
+            .text(function(d) { return d.text; })
+            .on("end", draw) //draw is passed in two objects, an array of the word objects and their positions, and the bounds
+            .start();
+        });
+
+      // var myWords = Entries.getWordsTest(emotion);
+
+      // d3.layout.cloud().size([700, 500])
+      //   .words(myWords)
+      //   .rotate(function() { return ~~(Math.random()*2) * 90; })
+      //   .font("Varela Round")
+      //   .fontSize(function(d) { return fontSize(d.frequency); })
+      //   .fontWeight(function() { return 400; })
+      //   .text(function(d) { return d.text; })
+      //   .on("end", draw) //draw is passed in two objects, an array of the word objects and their positions, and the bounds
+      //   .start();
 
     };
 
