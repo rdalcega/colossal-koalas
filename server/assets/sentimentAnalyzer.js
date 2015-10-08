@@ -1,29 +1,11 @@
 var fs = require('fs');
-var cron = require( 'cron' ).CronJob;
 var http = require( 'http' );
 var db = require('./database/interface.js');
 var AlchemyAPI = require( './assets/alchemyapi');
 var alchemyapi = new AlchemyAPI( '73ad3b222a6bcb7a40192e87eb2a393469e08fcf' );
 var stopwords = require('./assets/stopwords.js');
-var paths = require( '../paths.js' );
 
-new cron( '* * * * * *', function( ) {
-  var files = fs.readdirSync( '/app/server/queue' );
-  console.log( 'FILES IN /app/server/queue: ' + files );
-  console.log( 'NUMBER OF FILES IN app/server/queue ' + files.length );
-  if( !( files.length > 0 ) ) {
-    console.log( 'No files in ' + '/app/server/queue' );
-    return;
-  }
-  var filename = files[ 0 ];
-  for( var i = 0; i < files.length; i++ ) {
-    if( +files[ i ] < +filename ) {
-      filename = files[ i ];
-    }
-  }
-  var data = JSON.parse( fs.readFileSync( '/app/server/queue/' + filename, 'utf8' ) );
-  console.log( data.text );
-  fs.unlink( '/app/server/queue/' + filename );
+module.exports = function( data ) {
   alchemyapi.keywords('text', data.text, {sentiment: true}, function keywordsCallback( keywordsJSON ) {
     data.text = data.text.replace(/[\.\,\:\;\'\"\?\!']/g, '');
     if( keywordsJSON.status && keywordsJSON.status === 'ERROR' ) {
@@ -148,4 +130,4 @@ new cron( '* * * * * *', function( ) {
       });
     }
   });
-}, null, true, 'America/Los_Angeles');
+};
