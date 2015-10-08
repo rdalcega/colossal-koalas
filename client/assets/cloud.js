@@ -24,7 +24,7 @@ module.exports = function() {
       timer = null,
       random = Math.random,
       cloud = {},
-      canvas = cloudCanvas,
+      canvas = cloudCanvas;
 
       //NAOMI JACOBS ADDING THINGS HERE TO LET DATA PROPERTIES PERSIST TO THE DATA FUNCTION
       // averageSentiment = cloudAverageSentiment;
