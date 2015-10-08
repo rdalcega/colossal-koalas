@@ -28,7 +28,7 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
         .range(["#e05276", "#23c29b"]); //matching moodlet, original purple is #9952e0, twitter yellow is E2BE40
 
       var fontSize = d3.scale.linear()
-        .domain([1, 40])
+        .domain([1, 10])
         .range([30, 150]);
 
       var draw = function (words, bounds) {
