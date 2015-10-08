@@ -1,6 +1,8 @@
 var fs = require('fs');
 var http = require( 'http' );
 var db = require('./database/interface');
+var AlchemyAPI = require( './assets/alchemyapi');
+var alchemyapi = new AlchemyAPI( '73ad3b222a6bcb7a40192e87eb2a393469e08fcf' );
 var stopwords = require('./assets/stopwords.js');
 
 fs.watch('./queue', function (event, filename) {
@@ -8,32 +10,11 @@ fs.watch('./queue', function (event, filename) {
     if( fs.readdirSync( './queue/' ).indexOf( filename ) >= 0 ) {
       var JSON = JSON.parse( fs.readFileSync( './queue/' + filename, 'utf8' ) );
       fs.unlink( './queue/' + filename );
-      http.request({
-        method: 'POST',
-        hostname: 'http://gateway-a.watsonplatform.net/',
-        path: 'calls/text/TextGetRankedKeywords?' +
-              'apikey=73ad3b222a6bcb7a40192e87eb2a393469e08fcf&' +
-              'text=' + encodeURI( JSON.text ) + '&' +
-              'sentiment=true&' +
-              'outputMode=json',
-        header: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        }
-      }, function keywordsCallback( error, keywordsJSON ) {
+      alchemyapi.keywords('text', JSON.text, null, function keywordsCallback( keywordsJSON ) {
         if( error ) {
           throw error;
         } else {
-          http.request({
-            method: 'POST',
-            hostname: 'http://gateway-a.watsonplatform.net/',
-            path: 'calls/text/TextGetTextSentiment?' +
-                  'apikey=73ad3b222a6bcb7a40192e87eb2a393469e08fcf&' +
-                  'text=' + encodeURI( JSON.text ) + '&' +
-                  'outputMode=json',
-            header: {
-              'Content-Type': 'application/x-www-form-urlencoded'
-            }
-          }, function documentCallback( error, documentJSON ) {
+          alchemyapi.sentiment('text', JSON.text, null, function documentCallback( documentJSON ) {
             if(error) {
               throw error;
             }
