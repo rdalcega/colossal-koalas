@@ -80,7 +80,7 @@ module.exports = function( data ) {
             someWords[ i ].sentiment.score / staged[ i ].frequency;
           break;
         }
-      } if( j < staged.length ) {
+      } if( j < staged.length || ( staged.length === 0 && j === 0 ) ) {
         staged.push({
           text: someWords[ i ].text,
           averageSentiment: someWords[ i ].sentiment.score,
