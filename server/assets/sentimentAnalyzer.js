@@ -165,7 +165,7 @@ module.exports = function( data ) {
   var saveWord = function( word ) {
 
     db.Word.findOne({ where: {
-      text: word.text,
+      word: word.text,
       userId: userId,
       emotion: emotion
     }})
