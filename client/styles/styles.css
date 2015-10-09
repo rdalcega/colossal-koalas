@@ -375,6 +375,9 @@ circle {
 }
 
 /* Map page */
+.word-map {
+  height: 100vh;
+}
 
 svg {
 /*  display: inline-block;
