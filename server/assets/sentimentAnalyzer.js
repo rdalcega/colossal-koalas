@@ -39,6 +39,8 @@ module.exports = function( data ) {
 
   .then( function( response ) {
 
+    console.log( 'RESPONSE: ' + response );
+
     if( response.status && response.status === 'ERROR' ) {
       throw response.statusInfo;
     } else {
