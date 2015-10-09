@@ -106,407 +106,407 @@ angular.module('greenfeels.services', [])
     };
   };
 
-  var getWordsTest = function(emojiNumber) {
+  // var getWordsTest = function(emojiNumber) {
 
-    return [
-      {
-        text: 'sock',
-        averageSentiment: -0.1,
-        frequency: 14
-      },
-      {
-        text: 'sweater',
-        averageSentiment: -0.2,
-        frequency: 8
-      },
-      {
-        text: 'love',
-        averageSentiment: -0.3,
-        frequency: 3
-      },
-      {
-        text: 'Rodrigo',
-        averageSentiment: -0.4,
-        frequency: 10
-      },
-      {
-        text: 'banana',
-        averageSentiment: -0.5,
-        frequency: 11
-      },
-      {
-        text: 'nonvegan',
-        averageSentiment: -0.6,
-        frequency: 6
-      },
-      {
-        text: 'meat',
-        averageSentiment: -0.7,
-        frequency: 2
-      },
-      {
-        text: 'bicycle',
-        averageSentiment: -0.8,
-        frequency: 7
-      },
-      {
-        text: 'Korea',
-        averageSentiment: -0.9,
-        frequency: 2
-      },
-      {
-        text: 'HackReactor',
-        averageSentiment: 1,
-        frequency: 20
-      },
-      {
-        text: 'Tempest',
-        averageSentiment: -0.01,
-        frequency: 20
-      },
-      {
-        text: 'pro-tip',
-        averageSentiment: -0.05,
-        frequency: 14
-      },
-      {
-        text: 'sleep',
-        averageSentiment: 0.05,
-        frequency: 8
-      },
-      {
-        text: 'knitting',
-        averageSentiment: 0.9,
-        frequency: 3
-      },
-      {
-        text: 'yarn',
-        averageSentiment: 0.8,
-        frequency: 10
-      },
-      {
-        text: 'needles',
-        averageSentiment: 0.7,
-        frequency: 11
-      },
-      {
-        text: 'fluffy',
-        averageSentiment: 0.6,
-        frequency: 6
-      },
-      {
-        text: 'wool',
-        averageSentiment: 0.5,
-        frequency: 2
-      },
-      {
-        text: 'sheep',
-        averageSentiment: 0.4,
-        frequency: 7
-      },
-      {
-        text: 'hat',
-        averageSentiment: 0.3,
-        frequency: 2
-      },
-      {
-        text: 'scarf',
-        averageSentiment: 0.2,
-        frequency: 20
-      },
-      {
-        text: 'glove',
-        averageSentiment: 0.1,
-        frequency: 20
-      },
-      {
-        text: 'sock',
-        averageSentiment: -0.1,
-        frequency: 14
-      },
-      {
-        text: 'sweater',
-        averageSentiment: -0.2,
-        frequency: 8
-      },
-      {
-        text: 'love',
-        averageSentiment: -0.3,
-        frequency: 3
-      },
-      {
-        text: 'Rodrigo',
-        averageSentiment: -0.4,
-        frequency: 10
-      },
-      {
-        text: 'banana',
-        averageSentiment: -0.5,
-        frequency: 11
-      },
-      {
-        text: 'nonvegan',
-        averageSentiment: -0.6,
-        frequency: 6
-      },
-      {
-        text: 'meat',
-        averageSentiment: -0.7,
-        frequency: 2
-      },
-      {
-        text: 'bicycle',
-        averageSentiment: -0.8,
-        frequency: 7
-      },
-      {
-        text: 'Korea',
-        averageSentiment: -0.9,
-        frequency: 2
-      },
-      {
-        text: 'HackReactor',
-        averageSentiment: 1,
-        frequency: 20
-      },
-      {
-        text: 'Tempest',
-        averageSentiment: -0.01,
-        frequency: 20
-      },
-      {
-        text: 'pro-tip',
-        averageSentiment: -0.05,
-        frequency: 14
-      },
-      {
-        text: 'sleep',
-        averageSentiment: 0.05,
-        frequency: 8
-      },
-      {
-        text: 'knitting',
-        averageSentiment: 0.9,
-        frequency: 3
-      },
-      {
-        text: 'yarn',
-        averageSentiment: 0.8,
-        frequency: 10
-      },
-      {
-        text: 'needles',
-        averageSentiment: 0.7,
-        frequency: 11
-      },
-      {
-        text: 'fluffy',
-        averageSentiment: 0.6,
-        frequency: 6
-      },
-      {
-        text: 'wool',
-        averageSentiment: 0.5,
-        frequency: 2
-      },
-      {
-        text: 'sheep',
-        averageSentiment: 0.4,
-        frequency: 7
-      },
-      {
-        text: 'hat',
-        averageSentiment: 0.3,
-        frequency: 2
-      },
-      {
-        text: 'scarf',
-        averageSentiment: 0.2,
-        frequency: 20
-      },
-      {
-        text: 'glove',
-        averageSentiment: 0.1,
-        frequency: 20
-      },
-      {
-        text: 'sock',
-        averageSentiment: -0.1,
-        frequency: 14
-      },
-      {
-        text: 'sweater',
-        averageSentiment: -0.2,
-        frequency: 8
-      },
-      {
-        text: 'love',
-        averageSentiment: -0.3,
-        frequency: 3
-      },
-      {
-        text: 'Rodrigo',
-        averageSentiment: -0.4,
-        frequency: 10
-      },
-      {
-        text: 'banana',
-        averageSentiment: -0.5,
-        frequency: 11
-      },
-      {
-        text: 'nonvegan',
-        averageSentiment: -0.6,
-        frequency: 6
-      },
-      {
-        text: 'meat',
-        averageSentiment: -0.7,
-        frequency: 2
-      },
-      {
-        text: 'bicycle',
-        averageSentiment: -0.8,
-        frequency: 7
-      },
-      {
-        text: 'Korea',
-        averageSentiment: -0.9,
-        frequency: 2
-      },
-      {
-        text: 'HackReactor',
-        averageSentiment: 1,
-        frequency: 20
-      },
-      {
-        text: 'Tempest',
-        averageSentiment: -0.01,
-        frequency: 20
-      },
-      {
-        text: 'pro-tip',
-        averageSentiment: -0.05,
-        frequency: 14
-      },
-      {
-        text: 'sleep',
-        averageSentiment: 0.05,
-        frequency: 8
-      },
-      {
-        text: 'knitting',
-        averageSentiment: 0.9,
-        frequency: 3
-      },
-      {
-        text: 'yarn',
-        averageSentiment: 0.8,
-        frequency: 10
-      },
-      {
-        text: 'needles',
-        averageSentiment: 0.7,
-        frequency: 11
-      },
-      {
-        text: 'fluffy',
-        averageSentiment: 0.6,
-        frequency: 6
-      },
-      {
-        text: 'wool',
-        averageSentiment: 0.5,
-        frequency: 2
-      },
-      {
-        text: 'sheep',
-        averageSentiment: 0.4,
-        frequency: 7
-      },
-      {
-        text: 'hat',
-        averageSentiment: 0.3,
-        frequency: 2
-      },
-      {
-        text: 'scarf',
-        averageSentiment: 0.2,
-        frequency: 20
-      },
-      {
-        text: 'glove',
-        averageSentiment: 0.1,
-        frequency: 20
-      },
-      {
-        text: 'sock',
-        averageSentiment: -0.1,
-        frequency: 14
-      },
-      {
-        text: 'sweater',
-        averageSentiment: -0.2,
-        frequency: 8
-      },
-      {
-        text: 'love',
-        averageSentiment: -0.3,
-        frequency: 3
-      },
-      {
-        text: 'Rodrigo',
-        averageSentiment: -0.4,
-        frequency: 10
-      },
-      {
-        text: 'banana',
-        averageSentiment: -0.5,
-        frequency: 11
-      },
-      {
-        text: 'nonvegan',
-        averageSentiment: -0.6,
-        frequency: 6
-      },
-      {
-        text: 'meat',
-        averageSentiment: -0.7,
-        frequency: 2
-      },
-      {
-        text: 'bicycle',
-        averageSentiment: -0.8,
-        frequency: 7
-      },
-      {
-        text: 'Korea',
-        averageSentiment: -0.9,
-        frequency: 2
-      },
-      {
-        text: 'HackReactor',
-        averageSentiment: 1,
-        frequency: 20
-      },
-      {
-        text: 'Tempest',
-        averageSentiment: -0.01,
-        frequency: 20
-      },
-      {
-        text: 'pro-tip',
-        averageSentiment: -0.05,
-        frequency: 14
-      },
-      {
-        text: 'sleep',
-        averageSentiment: 0.05,
-        frequency: 8
-      }
-    ];
+  //   return [
+  //     {
+  //       text: 'sock',
+  //       averageSentiment: -0.1,
+  //       frequency: 14
+  //     },
+  //     {
+  //       text: 'sweater',
+  //       averageSentiment: -0.2,
+  //       frequency: 8
+  //     },
+  //     {
+  //       text: 'love',
+  //       averageSentiment: -0.3,
+  //       frequency: 3
+  //     },
+  //     {
+  //       text: 'Rodrigo',
+  //       averageSentiment: -0.4,
+  //       frequency: 10
+  //     },
+  //     {
+  //       text: 'banana',
+  //       averageSentiment: -0.5,
+  //       frequency: 11
+  //     },
+  //     {
+  //       text: 'nonvegan',
+  //       averageSentiment: -0.6,
+  //       frequency: 6
+  //     },
+  //     {
+  //       text: 'meat',
+  //       averageSentiment: -0.7,
+  //       frequency: 2
+  //     },
+  //     {
+  //       text: 'bicycle',
+  //       averageSentiment: -0.8,
+  //       frequency: 7
+  //     },
+  //     {
+  //       text: 'Korea',
+  //       averageSentiment: -0.9,
+  //       frequency: 2
+  //     },
+  //     {
+  //       text: 'HackReactor',
+  //       averageSentiment: 1,
+  //       frequency: 20
+  //     },
+  //     {
+  //       text: 'Tempest',
+  //       averageSentiment: -0.01,
+  //       frequency: 20
+  //     },
+  //     {
+  //       text: 'pro-tip',
+  //       averageSentiment: -0.05,
+  //       frequency: 14
+  //     },
+  //     {
+  //       text: 'sleep',
+  //       averageSentiment: 0.05,
+  //       frequency: 8
+  //     },
+  //     {
+  //       text: 'knitting',
+  //       averageSentiment: 0.9,
+  //       frequency: 3
+  //     },
+  //     {
+  //       text: 'yarn',
+  //       averageSentiment: 0.8,
+  //       frequency: 10
+  //     },
+  //     {
+  //       text: 'needles',
+  //       averageSentiment: 0.7,
+  //       frequency: 11
+  //     },
+  //     {
+  //       text: 'fluffy',
+  //       averageSentiment: 0.6,
+  //       frequency: 6
+  //     },
+  //     {
+  //       text: 'wool',
+  //       averageSentiment: 0.5,
+  //       frequency: 2
+  //     },
+  //     {
+  //       text: 'sheep',
+  //       averageSentiment: 0.4,
+  //       frequency: 7
+  //     },
+  //     {
+  //       text: 'hat',
+  //       averageSentiment: 0.3,
+  //       frequency: 2
+  //     },
+  //     {
+  //       text: 'scarf',
+  //       averageSentiment: 0.2,
+  //       frequency: 20
+  //     },
+  //     {
+  //       text: 'glove',
+  //       averageSentiment: 0.1,
+  //       frequency: 20
+  //     },
+  //     {
+  //       text: 'sock',
+  //       averageSentiment: -0.1,
+  //       frequency: 14
+  //     },
+  //     {
+  //       text: 'sweater',
+  //       averageSentiment: -0.2,
+  //       frequency: 8
+  //     },
+  //     {
+  //       text: 'love',
+  //       averageSentiment: -0.3,
+  //       frequency: 3
+  //     },
+  //     {
+  //       text: 'Rodrigo',
+  //       averageSentiment: -0.4,
+  //       frequency: 10
+  //     },
+  //     {
+  //       text: 'banana',
+  //       averageSentiment: -0.5,
+  //       frequency: 11
+  //     },
+  //     {
+  //       text: 'nonvegan',
+  //       averageSentiment: -0.6,
+  //       frequency: 6
+  //     },
+  //     {
+  //       text: 'meat',
+  //       averageSentiment: -0.7,
+  //       frequency: 2
+  //     },
+  //     {
+  //       text: 'bicycle',
+  //       averageSentiment: -0.8,
+  //       frequency: 7
+  //     },
+  //     {
+  //       text: 'Korea',
+  //       averageSentiment: -0.9,
+  //       frequency: 2
+  //     },
+  //     {
+  //       text: 'HackReactor',
+  //       averageSentiment: 1,
+  //       frequency: 20
+  //     },
+  //     {
+  //       text: 'Tempest',
+  //       averageSentiment: -0.01,
+  //       frequency: 20
+  //     },
+  //     {
+  //       text: 'pro-tip',
+  //       averageSentiment: -0.05,
+  //       frequency: 14
+  //     },
+  //     {
+  //       text: 'sleep',
+  //       averageSentiment: 0.05,
+  //       frequency: 8
+  //     },
+  //     {
+  //       text: 'knitting',
+  //       averageSentiment: 0.9,
+  //       frequency: 3
+  //     },
+  //     {
+  //       text: 'yarn',
+  //       averageSentiment: 0.8,
+  //       frequency: 10
+  //     },
+  //     {
+  //       text: 'needles',
+  //       averageSentiment: 0.7,
+  //       frequency: 11
+  //     },
+  //     {
+  //       text: 'fluffy',
+  //       averageSentiment: 0.6,
+  //       frequency: 6
+  //     },
+  //     {
+  //       text: 'wool',
+  //       averageSentiment: 0.5,
+  //       frequency: 2
+  //     },
+  //     {
+  //       text: 'sheep',
+  //       averageSentiment: 0.4,
+  //       frequency: 7
+  //     },
+  //     {
+  //       text: 'hat',
+  //       averageSentiment: 0.3,
+  //       frequency: 2
+  //     },
+  //     {
+  //       text: 'scarf',
+  //       averageSentiment: 0.2,
+  //       frequency: 20
+  //     },
+  //     {
+  //       text: 'glove',
+  //       averageSentiment: 0.1,
+  //       frequency: 20
+  //     },
+  //     {
+  //       text: 'sock',
+  //       averageSentiment: -0.1,
+  //       frequency: 14
+  //     },
+  //     {
+  //       text: 'sweater',
+  //       averageSentiment: -0.2,
+  //       frequency: 8
+  //     },
+  //     {
+  //       text: 'love',
+  //       averageSentiment: -0.3,
+  //       frequency: 3
+  //     },
+  //     {
+  //       text: 'Rodrigo',
+  //       averageSentiment: -0.4,
+  //       frequency: 10
+  //     },
+  //     {
+  //       text: 'banana',
+  //       averageSentiment: -0.5,
+  //       frequency: 11
+  //     },
+  //     {
+  //       text: 'nonvegan',
+  //       averageSentiment: -0.6,
+  //       frequency: 6
+  //     },
+  //     {
+  //       text: 'meat',
+  //       averageSentiment: -0.7,
+  //       frequency: 2
+  //     },
+  //     {
+  //       text: 'bicycle',
+  //       averageSentiment: -0.8,
+  //       frequency: 7
+  //     },
+  //     {
+  //       text: 'Korea',
+  //       averageSentiment: -0.9,
+  //       frequency: 2
+  //     },
+  //     {
+  //       text: 'HackReactor',
+  //       averageSentiment: 1,
+  //       frequency: 20
+  //     },
+  //     {
+  //       text: 'Tempest',
+  //       averageSentiment: -0.01,
+  //       frequency: 20
+  //     },
+  //     {
+  //       text: 'pro-tip',
+  //       averageSentiment: -0.05,
+  //       frequency: 14
+  //     },
+  //     {
+  //       text: 'sleep',
+  //       averageSentiment: 0.05,
+  //       frequency: 8
+  //     },
+  //     {
+  //       text: 'knitting',
+  //       averageSentiment: 0.9,
+  //       frequency: 3
+  //     },
+  //     {
+  //       text: 'yarn',
+  //       averageSentiment: 0.8,
+  //       frequency: 10
+  //     },
+  //     {
+  //       text: 'needles',
+  //       averageSentiment: 0.7,
+  //       frequency: 11
+  //     },
+  //     {
+  //       text: 'fluffy',
+  //       averageSentiment: 0.6,
+  //       frequency: 6
+  //     },
+  //     {
+  //       text: 'wool',
+  //       averageSentiment: 0.5,
+  //       frequency: 2
+  //     },
+  //     {
+  //       text: 'sheep',
+  //       averageSentiment: 0.4,
+  //       frequency: 7
+  //     },
+  //     {
+  //       text: 'hat',
+  //       averageSentiment: 0.3,
+  //       frequency: 2
+  //     },
+  //     {
+  //       text: 'scarf',
+  //       averageSentiment: 0.2,
+  //       frequency: 20
+  //     },
+  //     {
+  //       text: 'glove',
+  //       averageSentiment: 0.1,
+  //       frequency: 20
+  //     },
+  //     {
+  //       text: 'sock',
+  //       averageSentiment: -0.1,
+  //       frequency: 14
+  //     },
+  //     {
+  //       text: 'sweater',
+  //       averageSentiment: -0.2,
+  //       frequency: 8
+  //     },
+  //     {
+  //       text: 'love',
+  //       averageSentiment: -0.3,
+  //       frequency: 3
+  //     },
+  //     {
+  //       text: 'Rodrigo',
+  //       averageSentiment: -0.4,
+  //       frequency: 10
+  //     },
+  //     {
+  //       text: 'banana',
+  //       averageSentiment: -0.5,
+  //       frequency: 11
+  //     },
+  //     {
+  //       text: 'nonvegan',
+  //       averageSentiment: -0.6,
+  //       frequency: 6
+  //     },
+  //     {
+  //       text: 'meat',
+  //       averageSentiment: -0.7,
+  //       frequency: 2
+  //     },
+  //     {
+  //       text: 'bicycle',
+  //       averageSentiment: -0.8,
+  //       frequency: 7
+  //     },
+  //     {
+  //       text: 'Korea',
+  //       averageSentiment: -0.9,
+  //       frequency: 2
+  //     },
+  //     {
+  //       text: 'HackReactor',
+  //       averageSentiment: 1,
+  //       frequency: 20
+  //     },
+  //     {
+  //       text: 'Tempest',
+  //       averageSentiment: -0.01,
+  //       frequency: 20
+  //     },
+  //     {
+  //       text: 'pro-tip',
+  //       averageSentiment: -0.05,
+  //       frequency: 14
+  //     },
+  //     {
+  //       text: 'sleep',
+  //       averageSentiment: 0.05,
+  //       frequency: 8
+  //     }
+  //   ];
 
-  };
+  // };
 
   var getEntry = methodEntry('GET');
   var updateEntry = methodEntry('PUT');
@@ -544,8 +544,8 @@ angular.module('greenfeels.services', [])
     getEntry: getEntry,
     updateEntry: updateEntry,
     deleteEntry: deleteEntry,
-    // getWords: getWords,
-    getWordsTest: getWordsTest
+    getWords: getWords
+    // getWordsTest: getWordsTest
   };
 }])
 
