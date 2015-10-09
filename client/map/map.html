@@ -2,7 +2,8 @@
   <div ui-view="initial" class="fade"></div>
   <div>
     <!-- Spectrum stays on screen -->
-      <ul class="emotion-spectrum"> 
+      <h1 class="graph-header">word cloud</h1>
+      <ul class="emotion-spectrum">
       <!-- Grabbed images from: http://twitter.github.io/twemoji/preview.html -->
         <li><button class="emoji" ng-click="selectHandler($event)" data-emotion-id="0"><img src="{{ getTwemojiSrc(0, 72) }}"></button></li>
         <li><button class="emoji" ng-click="selectHandler($event)" data-emotion-id="1"><img src="{{ getTwemojiSrc(1, 72) }}"/></button></li>
