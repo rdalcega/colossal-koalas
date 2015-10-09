@@ -115,7 +115,7 @@ module.exports = function( data ) {
     // Get rid of all non '
     // punctuation marks.
     text = text.replace(
-      /[\.\,\;\:\"]/g,
+      /[\.\,\;\:\"\[\{\(\]\}\)\|\*\^\&\^\`}]]/g,
       ''
     );
 
