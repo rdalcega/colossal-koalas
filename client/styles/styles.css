@@ -180,7 +180,7 @@ ul {
   border-radius: 50px;
   float: left;
   margin-bottom: 35px;
-  margin-right: 10px; 
+  margin-right: 10px;
   padding: 0;
   width: 50px;
 }
@@ -189,16 +189,16 @@ img {
   width: 50px;
 }
 
-.home [ui-view].ng-enter {
+.home [ui-view].ng-enter,.map [ui-view].ng-enter {
   transition: 0.4s linear all;
   opacity: 0;
 }
 
-.home [ui-view].ng-enter-active {
+.home [ui-view].ng-enter-active,.map [ui-view].ng-enter-active {
   opacity: 1;
 }
 
-.home [ui-view="initial"].ng-leave {
+.home [ui-view="initial"].ng-leave,.map [ui-view="initial"].ng-leave {
   transition-property: opacity, max-height;
   transition-duration: 0.3s, 0.2s;
   transition-delay: 0s, 0.1s;
@@ -206,19 +206,18 @@ img {
   max-height: 150px;
 }
 
-.home [ui-view="initial"].ng-leave-active {
+.home [ui-view="initial"].ng-leave-active,.map [ui-view="initial"].ng-leave-active {
   max-height: 0;
   opacity: 0;
 }
 
-.home [ui-view="selected"].ng-leave {
+.home [ui-view="selected"].ng-leave,.map [ui-view="selected"].ng-leave {
   transition: 0.4s linear all;
 }
 
-.home [ui-view="selected"].ng-leave-active {
+.home [ui-view="selected"].ng-leave-active,.map [ui-view="selected"].ng-leave-active {
   opacity: 0;
 }
-
 
 /* Home page selected */
 
