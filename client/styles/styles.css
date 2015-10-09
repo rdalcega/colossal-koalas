@@ -219,6 +219,17 @@ img {
   opacity: 0;
 }
 
+/* Map header show & hide */
+.map-header.ng-hide-add, .map-header.ng-hide-remove {
+  transition: 0.4s linear all;
+  opacity: 0;
+}
+
+.map-header.ng-remove-active {
+  transition: 0.4s linear all;
+  opacity: 1;
+}
+
 /* Home page selected */
 
 .selected {
@@ -320,7 +331,7 @@ textarea {
   margin: 20px 20px 50px;
 }
 
-.graph-header {
+.graph-header,.map-header {
   font-size: 60px;
   clear: both;
   /*padding-top: 50px;*/

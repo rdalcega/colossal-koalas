@@ -9,6 +9,8 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
 
     $state.transitionTo('map.initial');
 
+    $scope.displayHeader = false;
+
     $scope.selectHandler = function($event) {
       $state.transitionTo('map.selected');
       clearSelectedStates();
@@ -18,6 +20,8 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
     };
 
     var makeMap = function (emotion) {
+
+      $scope.displayHeader = true;
 
       var spinner = Spinner.create();
       spinner.spin(document.querySelector('#map-spinner'));
