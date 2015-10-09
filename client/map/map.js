@@ -36,8 +36,7 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
 
       var draw = function (words, bounds) {
         d3.select(".word-map").append("svg")
-            .attr("width", 1200)
-            .attr("height", 550)
+            .style({"width": "100%", "height": "100%"}) // originally .attr("height", 550)
             .append("g")
             .attr("transform", "translate(650, 270)scale(1,1)") //figure out what this is later
             .selectAll("text")
