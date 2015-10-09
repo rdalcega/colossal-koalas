@@ -53,12 +53,15 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
             });
       };
 
+      var canvasWidth = $('.word-map').width();
+      var canvasHeight = $('.word-map').height();
+
       Entries.getWords(emotion)
         .then(function(response) {
 
           spinner.stop();
 
-          d3.layout.cloud().size()
+          d3.layout.cloud().size([canvasWidth, canvasHeight])
             .words(response.data)
             .rotate(function() { return ~~(Math.random()*2) * 90; })
             .font("Varela Round")
