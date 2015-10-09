@@ -53,7 +53,7 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
             });
       };
 
-      Entries.getWords(emotion)
+      Entries.getWordsTest(emotion)
         .then(function(response) {
 
           spinner.stop();
