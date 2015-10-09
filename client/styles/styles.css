@@ -377,6 +377,7 @@ circle {
 /* Map page */
 .word-map {
   height: 100vh;
+  overflow: hidden;
 }
 
 svg {
