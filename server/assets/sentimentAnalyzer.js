@@ -28,7 +28,6 @@ module.exports = function( data ) {
       throw response.statusInfo;
     } else {
       keywords = response.keywords;
-      console.log( 'KEYWORDS: ' + keywords );
       return alchemyapi.sentimentAsync(
         'text',
         text,
@@ -44,7 +43,6 @@ module.exports = function( data ) {
       throw response.statusInfo;
     } else {
       sentenceSentiment = response.docSentiment.score;
-      console.log( 'SENTENCE SENTIMENT: ' + sentenceSentiment );
       stageKeywords( );
       cleanText( );
       removeStopwords( );
@@ -157,6 +155,7 @@ module.exports = function( data ) {
 
   var saveAllStagedWords = function( ) {
 
+    console.log( 'ABOUT TO SAVE ALL STAGED WORDS!');
     while( staged.length > 0 ) {
       saveWord( staged.pop( ) );
     }
@@ -165,6 +164,7 @@ module.exports = function( data ) {
 
   var saveWord = function( word ) {
 
+    console.log( 'ABOUT TO SAVE WORD: ' + word );
     db.Word.findOne({ where: {
       text: word.text,
       userId: userId,
