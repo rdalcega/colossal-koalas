@@ -85,7 +85,7 @@ module.exports = function( data ) {
           text: someWords[ i ].text,
           averageSentiment: someWords[ i ].sentiment.score,
           frequency: 1
-        })
+        });
       } if( typeof text === 'string' ) {
         text = text.replace( keywords[ i ].text, '' );
       }
@@ -97,7 +97,7 @@ module.exports = function( data ) {
 
     var i = 0;
 
-    text = text.removePunctuation( );
+    text = removePunctuation( text );
     text = text.split( /(\s|\n)/g );
     while( i < text.length ) {
       if( text[ i ] === '' ) {
@@ -135,7 +135,7 @@ module.exports = function( data ) {
 
     text = text.filter(function( word ) {
       return !stopwords[word];
-    })
+    });
 
   };
 
