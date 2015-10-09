@@ -1,98 +1,19 @@
-/**
-   Copyright 2014 AlchemyAPI
-
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
-*/
-
-
 var http = require('http');
 var fs = require('fs');
 
-
-//Make the class available
 exports = module.exports = AlchemyAPI;
 
 
 function AlchemyAPI( key ) {
 
-	//Make sure the key formating looks good
 	if (key.length != 40) {
 		console.log('The API key in api_key.txt does not appear to be valid. Make sure to run: node alchemyapi.js YOUR_KEY_HERE');
 		console.log('If you do not have a key, register for one at: http://www.alchemyapi.com/api/register.html');
 		process.exit(1);
 	}
 
-	//Set the key
 	this.apikey = key;
 
-
-	/**
-	  *	HTTP Request wrapper that is called by the endpoint functions. This function is not intended to be called through an external interface. 
-	  *	It makes the call, then converts the returned JSON string into a Javascript object. 
-	  *	
-	  *	INPUT:
-	  *	url -> the full URI encoded url
-	  *	params -> the call parameters, both required and optional
-    *	sfile -> a file to stream if this is a file upload (optional)
-	  *	callback -> the callback function
-	  *
-	  *	OUTPUT:
-	  *	The response, already converted from JSON to a Javascript object. 
-	*/
-  /*
-	this.analyze = function (endpoint, params, sfile, callback) {
-    // This is an upload if there is a file for streaming
-    if (typeof sfile === "string") {
-      return this.analyze_upload(endpoint, params, sfile, callback);
-    } else {
-      callback = sfile;
-    }
-
-		//Insert the base url
-		var url = AlchemyAPI.BASE_URL + endpoint;
-
-		//Add the API key and set the output mode to JSON
-		params['apikey'] = this.apikey;
-		params['outputMode'] = 'json';
-    if ("image" in params) {
-      params['imagePostMode'] = 'not-raw';
-    }
-
-		//Fire off the request
-		request.post(url, {form:params}, function(error, response, body) {
-      if (error) throw new Error(error);
-			if (response.statusCode == 200) {
-				callback(JSON.parse(body));
-			} else {
-				callback({ status:'ERROR', statusInfo:'invalid server response' });
-			}
-		});
-	}
-  */
-
-	/**
-	  *	HTTP Uploader
-	  *	It makes the call, then converts the returned JSON string into a Javascript object. 
-	  *	
-	  *	INPUT:
-	  *	url -> the full URI encoded url
-	  *	params -> the call parameters, both required and optional
-    *	sfile -> a file to stream if this is a file upload (optional)
-	  *	callback -> the callback function
-	  *
-	  *	OUTPUT:
-	  *	The response, already converted from JSON to a Javascript object. 
-	*/
 	this.analyze = function (endpoint, params, sfile, callback) {
     var urlKVPairs = [];
     var reqParams = "";

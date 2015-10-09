@@ -3,7 +3,7 @@ var http = require( 'http' );
 var db = require('../database/interface.js');
 var bluebird = require( 'bluebird' );
 var AlchemyAPI = require( './alchemyapi');
-var alchemyapi = bluebird.promisifyAll( new AlchemyAPI( '73ad3b222a6bcb7a40192e87eb2a393469e08fcf' ) );
+var alchemyapi = bluebird.promisifyAll( new AlchemyAPI( process.env.ALCHEMY_KEY ) );
 var stopwords = require('./stopwords.js');
 
 module.exports = function( data ) {
