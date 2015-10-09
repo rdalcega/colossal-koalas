@@ -137,9 +137,9 @@ function AlchemyAPI( key ) {
       var response = "";
       res.setEncoding('utf8');
       res.on('data', function (chunk) { response += chunk; });
-      res.on('end', function () { callback(JSON.parse(response)); });
+      res.on('end', function () { callback( null, JSON.parse(response) ); });
       res.on('error', function (err) {
-        callback({ status:'ERROR', statusInfo: err });
+        callback( null, { status:'ERROR', statusInfo: err });
       });
     });
 
@@ -248,17 +248,17 @@ AlchemyAPI.ENDPOINTS['image_keywords']['image'] = '/image/ImageGetRankedImageKey
   *	OUTPUT:
   *	The response, already converted from JSON to a Javascript object. 
 */
-AlchemyAPI.prototype.entities = function(flavor, data, options, callback) {
-	options = options || {}
+// AlchemyAPI.prototype.entities = function(flavor, data, options, callback) {
+// 	options = options || {}
 	
-	if (!(flavor in AlchemyAPI.ENDPOINTS['entities'])) {
-		callback({ status:'ERROR', statusInfo:'Entity extraction is not available for ' + flavor });
-	} else {
-		//Add the data to the options and analyze
-		options[flavor] = data;
-		this.analyze(AlchemyAPI.ENDPOINTS['entities'][flavor], options, callback);
-	}
-};
+// 	if (!(flavor in AlchemyAPI.ENDPOINTS['entities'])) {
+// 		callback({ status:'ERROR', statusInfo:'Entity extraction is not available for ' + flavor });
+// 	} else {
+// 		//Add the data to the options and analyze
+// 		options[flavor] = data;
+// 		this.analyze(AlchemyAPI.ENDPOINTS['entities'][flavor], options, callback);
+// 	}
+// };
 
 
 /**
@@ -285,7 +285,7 @@ AlchemyAPI.prototype.keywords = function(flavor, data, options, callback) {
 	options = options || {}
 
 	if (!(flavor in AlchemyAPI.ENDPOINTS['keywords'])) {
-		callback({ status:'ERROR', statusInfo:'Keyword extraction is not available for ' + flavor });
+		callback(null, { status:'ERROR', statusInfo:'Keyword extraction is not available for ' + flavor });
 	} else {
 		//Add the data to the options and analyze
 		options[flavor] = data;
@@ -313,17 +313,17 @@ AlchemyAPI.prototype.keywords = function(flavor, data, options, callback) {
   *	OUTPUT:
   *	The response, already converted from JSON to a Javascript object. 
 */
-AlchemyAPI.prototype.concepts = function(flavor, data, options, callback) {
-	options = options || {}
+// AlchemyAPI.prototype.concepts = function(flavor, data, options, callback) {
+// 	options = options || {}
 
-	if (!(flavor in AlchemyAPI.ENDPOINTS['concepts'])) {
-		callback({ status:'ERROR', statusInfo:'Concept tagging is not available for ' + flavor });
-	} else {
-		//Add the data to the options and analyze
-		options[flavor] = data;
-		this.analyze(AlchemyAPI.ENDPOINTS['concepts'][flavor], options, callback);
-	}
-};
+// 	if (!(flavor in AlchemyAPI.ENDPOINTS['concepts'])) {
+// 		callback({ status:'ERROR', statusInfo:'Concept tagging is not available for ' + flavor });
+// 	} else {
+// 		//Add the data to the options and analyze
+// 		options[flavor] = data;
+// 		this.analyze(AlchemyAPI.ENDPOINTS['concepts'][flavor], options, callback);
+// 	}
+// };
 
 
 /**
@@ -347,7 +347,7 @@ AlchemyAPI.prototype.sentiment = function(flavor, data, options, callback) {
 	options = options || {}
 	
 	if (!(flavor in AlchemyAPI.ENDPOINTS['sentiment'])) {
-		callback({ status:'ERROR', statusInfo:'Sentiment analysis is not available for ' + flavor });
+		callback(null, { status:'ERROR', statusInfo:'Sentiment analysis is not available for ' + flavor });
 	} else {
 		//Add the data to the options and analyze
 		options[flavor] = data;
@@ -374,20 +374,20 @@ AlchemyAPI.prototype.sentiment = function(flavor, data, options, callback) {
   *	OUTPUT:
   *	The response, already converted from JSON to a Javascript object. 
 */
-AlchemyAPI.prototype.sentiment_targeted = function(flavor, data, target, options, callback) {
-	options = options || {}
+// AlchemyAPI.prototype.sentiment_targeted = function(flavor, data, target, options, callback) {
+// 	options = options || {}
 	
-	if (!(flavor in AlchemyAPI.ENDPOINTS['sentiment_targeted'])) {
-		callback({ status:'ERROR', statusInfo:'Sentiment analysis is not available for ' + flavor });
-	} else if (!target) {
-		callback({ status:'ERROR', statusInfo:'target must not be null' }); 
-	} else {
-		//Add the data to the options and analyze
-		options[flavor] = data;
-		options['target'] = target;
-		this.analyze(AlchemyAPI.ENDPOINTS['sentiment_targeted'][flavor], options, callback);
-	}
-};
+// 	if (!(flavor in AlchemyAPI.ENDPOINTS['sentiment_targeted'])) {
+// 		callback({ status:'ERROR', statusInfo:'Sentiment analysis is not available for ' + flavor });
+// 	} else if (!target) {
+// 		callback({ status:'ERROR', statusInfo:'target must not be null' }); 
+// 	} else {
+// 		//Add the data to the options and analyze
+// 		options[flavor] = data;
+// 		options['target'] = target;
+// 		this.analyze(AlchemyAPI.ENDPOINTS['sentiment_targeted'][flavor], options, callback);
+// 	}
+// };
 
 
 /**
@@ -408,17 +408,17 @@ AlchemyAPI.prototype.sentiment_targeted = function(flavor, data, target, options
   *	OUTPUT:
   *	The response, already converted from JSON to a Javascript object. 
 */
-AlchemyAPI.prototype.text = function(flavor, data, options, callback) {
-	options = options || {}
+// AlchemyAPI.prototype.text = function(flavor, data, options, callback) {
+// 	options = options || {}
 
-	if (!(flavor in AlchemyAPI.ENDPOINTS['text'])) {
-		callback({ status:'ERROR', statusInfo:'Text extraction is not available for ' + flavor });
-	} else {
-		//Add the data to the options and analyze
-		options[flavor] = data;
-		this.analyze(AlchemyAPI.ENDPOINTS['text'][flavor], options, callback);
-	}
-};
+// 	if (!(flavor in AlchemyAPI.ENDPOINTS['text'])) {
+// 		callback({ status:'ERROR', statusInfo:'Text extraction is not available for ' + flavor });
+// 	} else {
+// 		//Add the data to the options and analyze
+// 		options[flavor] = data;
+// 		this.analyze(AlchemyAPI.ENDPOINTS['text'][flavor], options, callback);
+// 	}
+// };
 
 
 /**
@@ -438,17 +438,17 @@ AlchemyAPI.prototype.text = function(flavor, data, options, callback) {
   *	OUTPUT:
   *	The response, already converted from JSON to a Javascript object. 
 */
-AlchemyAPI.prototype.text_raw = function(flavor, data, options, callback) {
-	options = options || {}
+// AlchemyAPI.prototype.text_raw = function(flavor, data, options, callback) {
+// 	options = options || {}
 
-	if (!(flavor in AlchemyAPI.ENDPOINTS['text_raw'])) {
-		callback({ status:'ERROR', statusInfo:'Text extraction is not available for ' + flavor });
-	} else {
-		//Add the data to the options and analyze
-		options[flavor] = data;
-		this.analyze(AlchemyAPI.ENDPOINTS['text_raw'][flavor], options, callback);
-	}
-};
+// 	if (!(flavor in AlchemyAPI.ENDPOINTS['text_raw'])) {
+// 		callback({ status:'ERROR', statusInfo:'Text extraction is not available for ' + flavor });
+// 	} else {
+// 		//Add the data to the options and analyze
+// 		options[flavor] = data;
+// 		this.analyze(AlchemyAPI.ENDPOINTS['text_raw'][flavor], options, callback);
+// 	}
+// };
 
 
 /**
@@ -468,17 +468,17 @@ AlchemyAPI.prototype.text_raw = function(flavor, data, options, callback) {
   *	OUTPUT:
   *	The response, already converted from JSON to a Javascript object. 
 */
-AlchemyAPI.prototype.author = function(flavor, data, options, callback) {
-	options = options || {}
+// AlchemyAPI.prototype.author = function(flavor, data, options, callback) {
+// 	options = options || {}
 	
-	if (!(flavor in AlchemyAPI.ENDPOINTS['author'])) {
-		callback({ status:'ERROR', statusInfo:'Author extraction is not available for ' + flavor });
-	} else {
-		//Add the data to the options and analyze
-		options[flavor] = data;
-		this.analyze(AlchemyAPI.ENDPOINTS['author'][flavor], options, callback);
-	}
-};
+// 	if (!(flavor in AlchemyAPI.ENDPOINTS['author'])) {
+// 		callback({ status:'ERROR', statusInfo:'Author extraction is not available for ' + flavor });
+// 	} else {
+// 		//Add the data to the options and analyze
+// 		options[flavor] = data;
+// 		this.analyze(AlchemyAPI.ENDPOINTS['author'][flavor], options, callback);
+// 	}
+// };
 
 
 /**
@@ -498,17 +498,17 @@ AlchemyAPI.prototype.author = function(flavor, data, options, callback) {
   *	OUTPUT:
   *	The response, already converted from JSON to a Javascript object. 
 */
-AlchemyAPI.prototype.language = function(flavor, data, options, callback) {
-	options = options || {}
+// AlchemyAPI.prototype.language = function(flavor, data, options, callback) {
+// 	options = options || {}
 	
-	if (!(flavor in AlchemyAPI.ENDPOINTS['language'])) {
-		callback({ status:'ERROR', statusInfo:'Language detection is not available for ' + flavor });
-	} else {
-		//Add the data to the options and analyze
-		options[flavor] = data;
-		this.analyze(AlchemyAPI.ENDPOINTS['language'][flavor], options, callback);
-	}
-};
+// 	if (!(flavor in AlchemyAPI.ENDPOINTS['language'])) {
+// 		callback({ status:'ERROR', statusInfo:'Language detection is not available for ' + flavor });
+// 	} else {
+// 		//Add the data to the options and analyze
+// 		options[flavor] = data;
+// 		this.analyze(AlchemyAPI.ENDPOINTS['language'][flavor], options, callback);
+// 	}
+// };
 
 
 /**
@@ -528,17 +528,17 @@ AlchemyAPI.prototype.language = function(flavor, data, options, callback) {
   *	OUTPUT:
   *	The response, already converted from JSON to a Javascript object. 
 */
-AlchemyAPI.prototype.title = function(flavor, data, options, callback) {
-	options = options || {}
+// AlchemyAPI.prototype.title = function(flavor, data, options, callback) {
+// 	options = options || {}
 
-	if (!(flavor in AlchemyAPI.ENDPOINTS['title'])) {
-		callback({ status:'ERROR', statusInfo:'Title extraction is not available for ' + flavor });
-	} else {
-		//Add the data to the options and analyze
-		options[flavor] = data;
-		this.analyze(AlchemyAPI.ENDPOINTS['title'][flavor], options, callback);
-	}
-};
+// 	if (!(flavor in AlchemyAPI.ENDPOINTS['title'])) {
+// 		callback({ status:'ERROR', statusInfo:'Title extraction is not available for ' + flavor });
+// 	} else {
+// 		//Add the data to the options and analyze
+// 		options[flavor] = data;
+// 		this.analyze(AlchemyAPI.ENDPOINTS['title'][flavor], options, callback);
+// 	}
+// };
 
 
 /**
@@ -567,17 +567,17 @@ AlchemyAPI.prototype.title = function(flavor, data, options, callback) {
   *	OUTPUT:
   *	The response, already converted from JSON to a Javascript object. 
 */
-AlchemyAPI.prototype.relations = function(flavor, data, options, callback) {
-	options = options || {}
+// AlchemyAPI.prototype.relations = function(flavor, data, options, callback) {
+// 	options = options || {}
 	
-	if (!(flavor in AlchemyAPI.ENDPOINTS['relations'])) {
-		callback({ status:'ERROR', statusInfo:'Relation extraction is not available for ' + flavor });
-	} else {
-		//Add the data to the options and analyze
-		options[flavor] = data;
-		this.analyze(AlchemyAPI.ENDPOINTS['relations'][flavor], options, callback);
-	}
-};
+// 	if (!(flavor in AlchemyAPI.ENDPOINTS['relations'])) {
+// 		callback({ status:'ERROR', statusInfo:'Relation extraction is not available for ' + flavor });
+// 	} else {
+// 		//Add the data to the options and analyze
+// 		options[flavor] = data;
+// 		this.analyze(AlchemyAPI.ENDPOINTS['relations'][flavor], options, callback);
+// 	}
+// };
 
 
 /**
@@ -597,17 +597,17 @@ AlchemyAPI.prototype.relations = function(flavor, data, options, callback) {
   *	OUTPUT:
   *	The response, already converted from JSON to a Javascript object.
 */
-AlchemyAPI.prototype.category = function(flavor, data, options, callback) {
-	options = options || {}
+// AlchemyAPI.prototype.category = function(flavor, data, options, callback) {
+// 	options = options || {}
 
-	if (!(flavor in AlchemyAPI.ENDPOINTS['category'])) {
-		callback({ status:'ERROR', statusInfo:'Text categorization is not available for ' + flavor });
-	} else {
-		//Add the data to the options and analyze
-		options[flavor] = data;
-		this.analyze(AlchemyAPI.ENDPOINTS['category'][flavor], options, callback);
-	}
-};
+// 	if (!(flavor in AlchemyAPI.ENDPOINTS['category'])) {
+// 		callback({ status:'ERROR', statusInfo:'Text categorization is not available for ' + flavor });
+// 	} else {
+// 		//Add the data to the options and analyze
+// 		options[flavor] = data;
+// 		this.analyze(AlchemyAPI.ENDPOINTS['category'][flavor], options, callback);
+// 	}
+// };
 
 
 /**
@@ -627,17 +627,17 @@ AlchemyAPI.prototype.category = function(flavor, data, options, callback) {
   *	OUTPUT:
   *	The response, already converted from JSON to a Javascript object. 
 */
-AlchemyAPI.prototype.feeds = function(flavor, data, options, callback) {
-	options = options || {}
+// AlchemyAPI.prototype.feeds = function(flavor, data, options, callback) {
+// 	options = options || {}
 	
-	if (!(flavor in AlchemyAPI.ENDPOINTS['feeds'])) {
-		callback({ status:'ERROR', statusInfo:'Feed detection is not available for ' + flavor });
-	} else {
-		//Add the data to the options and analyze
-		options[flavor] = data;
-		this.analyze(AlchemyAPI.ENDPOINTS['feeds'][flavor], options, callback);
-	}
-};
+// 	if (!(flavor in AlchemyAPI.ENDPOINTS['feeds'])) {
+// 		callback({ status:'ERROR', statusInfo:'Feed detection is not available for ' + flavor });
+// 	} else {
+// 		//Add the data to the options and analyze
+// 		options[flavor] = data;
+// 		this.analyze(AlchemyAPI.ENDPOINTS['feeds'][flavor], options, callback);
+// 	}
+// };
 
 
 /**
@@ -657,17 +657,17 @@ AlchemyAPI.prototype.feeds = function(flavor, data, options, callback) {
   *	OUTPUT:
   *	The response, already converted from JSON to a Javascript object. 
 */
-AlchemyAPI.prototype.microformats = function(flavor, data, options, callback) {
-	options = options || {}
+// AlchemyAPI.prototype.microformats = function(flavor, data, options, callback) {
+// 	options = options || {}
 
-	if (!(flavor in AlchemyAPI.ENDPOINTS['microformats'])) {
-		callback({ status:'ERROR', statusInfo:'Microformats parsing is not available for ' + flavor });
-	} else {
-		//Add the data to the options and analyze
-		options[flavor] = data;
-		this.analyze(AlchemyAPI.ENDPOINTS['microformats'][flavor], options, callback);
-	}
-};
+// 	if (!(flavor in AlchemyAPI.ENDPOINTS['microformats'])) {
+// 		callback({ status:'ERROR', statusInfo:'Microformats parsing is not available for ' + flavor });
+// 	} else {
+// 		//Add the data to the options and analyze
+// 		options[flavor] = data;
+// 		this.analyze(AlchemyAPI.ENDPOINTS['microformats'][flavor], options, callback);
+// 	}
+// };
 
 
 /**
@@ -685,13 +685,13 @@ AlchemyAPI.prototype.microformats = function(flavor, data, options, callback) {
   *	OUTPUT:
   *	The response, already converted from JSON to a Javascript object. 
 */
-AlchemyAPI.prototype.taxonomy = function(flavor, data, options, callback) {
-	options = options || {}
+// AlchemyAPI.prototype.taxonomy = function(flavor, data, options, callback) {
+// 	options = options || {}
 
-	//Add the data to the options and analyze
-	options[flavor] = data;
-	this.analyze(AlchemyAPI.ENDPOINTS['taxonomy'][flavor], options, callback);
-};
+// 	//Add the data to the options and analyze
+// 	options[flavor] = data;
+// 	this.analyze(AlchemyAPI.ENDPOINTS['taxonomy'][flavor], options, callback);
+// };
 
 
 /**
@@ -719,13 +719,13 @@ AlchemyAPI.prototype.taxonomy = function(flavor, data, options, callback) {
   *	OUTPUT:
   *	The response, already converted from JSON to a Javascript object. 
 */
-AlchemyAPI.prototype.combined = function(flavor, data, options, callback) {
-	options = options || {}
+// AlchemyAPI.prototype.combined = function(flavor, data, options, callback) {
+// 	options = options || {}
 
-	//Add the data to the options and analyze
-	options[flavor] = data;
-	this.analyze(AlchemyAPI.ENDPOINTS['combined'][flavor], options, callback);
-};
+// 	//Add the data to the options and analyze
+// 	options[flavor] = data;
+// 	this.analyze(AlchemyAPI.ENDPOINTS['combined'][flavor], options, callback);
+// };
 
 
 /**
@@ -743,13 +743,13 @@ AlchemyAPI.prototype.combined = function(flavor, data, options, callback) {
   *	OUTPUT:
   *	The response, already converted from JSON to a Javascript object. 
 */
-AlchemyAPI.prototype.image = function(flavor, data, options, callback) {
-	options = options || {}
+// AlchemyAPI.prototype.image = function(flavor, data, options, callback) {
+// 	options = options || {}
 
-	//Add the data to the options and analyze
-	options[flavor] = data;
-	this.analyze(AlchemyAPI.ENDPOINTS['image'][flavor], options, callback);
-};
+// 	//Add the data to the options and analyze
+// 	options[flavor] = data;
+// 	this.analyze(AlchemyAPI.ENDPOINTS['image'][flavor], options, callback);
+// };
 
 
 /**
@@ -768,18 +768,18 @@ AlchemyAPI.prototype.image = function(flavor, data, options, callback) {
   *	OUTPUT:
   *	The response of keywords, already converted from JSON to a Javascript object. 
 */
-AlchemyAPI.prototype.image_keywords =
-    function(flavor, data, options, callback) {
-	options = options || {}
+// AlchemyAPI.prototype.image_keywords =
+//     function(flavor, data, options, callback) {
+// 	options = options || {}
 
-	//Add the data to the options and analyze
-  if (flavor === "image") { // if it's an image, we'll pass the image to upload
-	  this.analyze(AlchemyAPI.ENDPOINTS['image_keywords'][flavor],
-        options, data, callback);
-  } else {
-	  options[flavor] = data;
-	  this.analyze(AlchemyAPI.ENDPOINTS['image_keywords'][flavor],
-        options, callback);
-  }
-};
+// 	//Add the data to the options and analyze
+//   if (flavor === "image") { // if it's an image, we'll pass the image to upload
+// 	  this.analyze(AlchemyAPI.ENDPOINTS['image_keywords'][flavor],
+//         options, data, callback);
+//   } else {
+// 	  options[flavor] = data;
+// 	  this.analyze(AlchemyAPI.ENDPOINTS['image_keywords'][flavor],
+//         options, callback);
+//   }
+// };
 
