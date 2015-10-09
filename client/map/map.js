@@ -19,8 +19,8 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
 
     var makeMap = function (emotion) {
 
-      // var spinner = Spinner.create();
-      // spinner.spin(document.querySelector('#map-spinner'));
+      var spinner = Spinner.create();
+      spinner.spin(document.querySelector('#map-spinner'));
 
       d3.selectAll(".word-map > *").remove();
 
@@ -42,7 +42,7 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
             .selectAll("text")
             .data(words)
             .enter().append("text")
-            .text(function(d) { return d.text; }) // when changing to use test data, d.word should be d.text
+            .text(function(d) { return d.word; }) // when changing to use test data, d.word should be d.text
             .style("font-size", function(d) { return fontSize(d.frequency); })
             .style("font-family", "Varela Round")
             .style("font-weight", 400)
@@ -53,34 +53,34 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
             });
       };
 
-      // Entries.getWords(emotion)
-      //   .then(function(response) {
+      Entries.getWords(emotion)
+        .then(function(response) {
 
-      //     spinner.stop();
+          spinner.stop();
 
-      //     d3.layout.cloud().size([700, 500])
-      //       .words(response.data)
-      //       .rotate(function() { return ~~(Math.random()*2) * 90; })
-      //       .font("Varela Round")
-      //       .fontSize(function(d) { return fontSize(d.frequency); })
-      //       .fontWeight(function() { return 400; })
-      //       .text(function(d) { return d.word; })
-      //       .on("end", draw) //draw is passed in two objects, an array of the word objects and their positions, and the bounds
-      //       .start();
+          d3.layout.cloud().size([700, 500])
+            .words(response.data)
+            .rotate(function() { return ~~(Math.random()*2) * 90; })
+            .font("Varela Round")
+            .fontSize(function(d) { return fontSize(d.frequency); })
+            .fontWeight(function() { return 400; })
+            .text(function(d) { return d.word; })
+            .on("end", draw) //draw is passed in two objects, an array of the word objects and their positions, and the bounds
+            .start();
 
-      //   });
+        });
 
-      var myWords = Entries.getWordsTest(emotion);
+      // var myWords = Entries.getWordsTest(emotion);
 
-      d3.layout.cloud().size([700, 500])
-        .words(myWords)
-        .rotate(function() { return ~~(Math.random()*2) * 90; })
-        .font("Varela Round")
-        .fontSize(function(d) { return fontSize(d.frequency); })
-        .fontWeight(function() { return 400; })
-        .text(function(d) { return d.text; })
-        .on("end", draw) //draw is passed in two objects, an array of the word objects and their positions, and the bounds
-        .start();
+      // d3.layout.cloud().size([700, 500])
+      //   .words(myWords)
+      //   .rotate(function() { return ~~(Math.random()*2) * 90; })
+      //   .font("Varela Round")
+      //   .fontSize(function(d) { return fontSize(d.frequency); })
+      //   .fontWeight(function() { return 400; })
+      //   .text(function(d) { return d.text; })
+      //   .on("end", draw) //draw is passed in two objects, an array of the word objects and their positions, and the bounds
+      //   .start();
 
     };
 
