@@ -19,8 +19,8 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
 
     var makeMap = function (emotion) {
 
-      var spinner = Spinner.create();
-      spinner.spin(document.querySelector('#map-spinner'));
+      // var spinner = Spinner.create();
+      // spinner.spin(document.querySelector('#map-spinner'));
 
       d3.selectAll(".word-map > *").remove();
 
