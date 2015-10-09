@@ -19,8 +19,8 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
 
     var makeMap = function (emotion) {
 
-      var spinner = Spinner.create();
-      spinner.spin(document.querySelector('#map-spinner'));
+      // var spinner = Spinner.create();
+      // spinner.spin(document.querySelector('#map-spinner'));
 
       d3.selectAll(".word-map > *").remove();
 
@@ -42,7 +42,7 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
             .selectAll("text")
             .data(words)
             .enter().append("text")
-            .text(function(d) { return d.word; })
+            .text(function(d) { return d.text; }) // when changing to use test data, d.word should be d.text
             .style("font-size", function(d) { return fontSize(d.frequency); })
             .style("font-family", "Varela Round")
             .style("font-weight", 400)
