@@ -156,7 +156,7 @@ module.exports = function( data ) {
 
     while( staged.length > 0 ) {
       var word = staged.pop( );
-      console.log( "A WORD: " + word );
+      console.log( "A WORD: " + word.text );
       saveWord( word );
     }
 
