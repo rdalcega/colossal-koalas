@@ -1,7 +1,7 @@
 var map = angular.module('greenfeels.map', ['ngAnimate']);
 
-map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Entries', 'Twemoji',
-  function($scope, $state, $animate, Prompts, Entries, Twemoji) {
+map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Entries', 'Twemoji', 'Spinner',
+  function ($scope, $state, $animate, Prompts, Entries, Twemoji, Spinner) {
     // Expose our Twemoji service within the scope.
     // This is used to conveniently generate the `src`
     // attributes of the <img> tags within the buttons.
@@ -18,6 +18,9 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
     };
 
     var makeMap = function (emotion) {
+
+      var spinner = Spinner.create();
+      spinner.spin(document.querySelector('.journal-spinner'));
 
       d3.selectAll(".word-map > *").remove();
 
@@ -54,7 +57,7 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
       Entries.getWords(emotion)
         .then(function(response) {
 
-          console.log(response.data);
+          spinner.stop();
 
           d3.layout.cloud().size([700, 500])
             .words(response.data)
@@ -65,6 +68,7 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
             .text(function(d) { return d.word; })
             .on("end", draw) //draw is passed in two objects, an array of the word objects and their positions, and the bounds
             .start();
+
         });
 
       // var myWords = Entries.getWordsTest(emotion);
