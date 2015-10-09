@@ -44,10 +44,15 @@ module.exports = function( data ) {
     } else {
       sentence = response.docSentiment.score;
       stageKeywords( );
+      console.log( "STAGED KEYWORDS!");
       cleanText( );
+      console.log( "CLEANED TEXT!");
       removeStopwords( );
+      console.log( "REMOVED STOPWORDS!");
       stageOtherWords( );
+      console.log( "STAGED OTHER WORDS!");
       saveAllStagedWords( );
+      console.log( "SAVED ALL STAGED WORDS!");
     }
 
   })
