@@ -228,7 +228,7 @@ var pathHandlers = {
               userId: user.id
             },
             order: [['frequency', 'DESC']],
-            attributes: [ 'text', 'frequency', 'averageSentiment']
+            attributes: [ 'word', 'frequency', 'averageSentiment']
           });
         } else {
           res.sendStatus(400);
