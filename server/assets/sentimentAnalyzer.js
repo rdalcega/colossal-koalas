@@ -39,12 +39,10 @@ module.exports = function( data ) {
 
   .then( function( response ) {
 
-    console.log( 'RESPONSE: ' + response );
-
     if( response.status && response.status === 'ERROR' ) {
       throw response.statusInfo;
     } else {
-      sentence = response.docSentiment.score;
+      sentenceSentiment = response.docSentiment.score;
       stageKeywords( );
       cleanText( );
       removeStopwords( );
@@ -157,6 +155,7 @@ module.exports = function( data ) {
 
   var saveAllStagedWords = function( ) {
 
+    console.log( 'ABOUT TO SAVE ALL STAGED WORDS!');
     while( staged.length > 0 ) {
       saveWord( staged.pop( ) );
     }
@@ -165,6 +164,7 @@ module.exports = function( data ) {
 
   var saveWord = function( word ) {
 
+    console.log( 'ABOUT TO SAVE WORD: ' + word );
     db.Word.findOne({ where: {
       text: word.text,
       userId: userId,
