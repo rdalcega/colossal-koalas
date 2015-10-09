@@ -154,9 +154,10 @@ module.exports = function( data ) {
 
   var saveAllStagedWords = function( ) {
 
-    console.log( 'STAGED: ' + staged );
     while( staged.length > 0 ) {
-      saveWord( staged.pop( ) );
+      var word = staged.pop( );
+      console.log( "A WORD: " + word );
+      saveWord( word );
     }
 
   };
