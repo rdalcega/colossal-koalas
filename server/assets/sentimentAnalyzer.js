@@ -39,20 +39,17 @@ module.exports = function( data ) {
 
   .then( function( response ) {
 
+    console.log( 'RESPONSE: ' + response );
+
     if( response.status && response.status === 'ERROR' ) {
       throw response.statusInfo;
     } else {
       sentence = response.docSentiment.score;
       stageKeywords( );
-      console.log( "STAGED KEYWORDS!");
       cleanText( );
-      console.log( "CLEANED TEXT!");
       removeStopwords( );
-      console.log( "REMOVED STOPWORDS!");
       stageOtherWords( );
-      console.log( "STAGED OTHER WORDS!");
       saveAllStagedWords( );
-      console.log( "SAVED ALL STAGED WORDS!");
     }
 
   })
