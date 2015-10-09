@@ -38,7 +38,7 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
         d3.select(".word-map").append("svg")
             .style({"width": "100%", "height": "100%"}) // originally .attr("height", 550)
             .append("g")
-            .attr("transform", "translate(650, 270)scale(1,1)") //figure out what this is later
+            .attr("transform", "translate(650, 270)scale(1,1)") // this sets the center.
             .selectAll("text")
             .data(words)
             .enter().append("text")
@@ -58,7 +58,7 @@ map.controller('MapController', ['$scope', '$state', '$animate', 'Prompts', 'Ent
 
           spinner.stop();
 
-          d3.layout.cloud().size([700, 500])
+          d3.layout.cloud().size()
             .words(response.data)
             .rotate(function() { return ~~(Math.random()*2) * 90; })
             .font("Varela Round")
