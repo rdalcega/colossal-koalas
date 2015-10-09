@@ -544,8 +544,8 @@ angular.module('greenfeels.services', [])
     getEntry: getEntry,
     updateEntry: updateEntry,
     deleteEntry: deleteEntry,
-    getWords: getWords,
-    getWordsTest: getWordsTest
+    getWords: getWords
+    // getWordsTest: getWordsTest
   };
 }])
 
