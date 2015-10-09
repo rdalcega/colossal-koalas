@@ -28,6 +28,7 @@ module.exports = function( data ) {
       throw response.statusInfo;
     } else {
       keywords = response.keywords;
+      console.log( 'KEYWORDS: ' + keywords );
       return alchemyapi.sentimentAsync(
         'text',
         text,
@@ -39,12 +40,11 @@ module.exports = function( data ) {
 
   .then( function( response ) {
 
-    console.log( 'RESPONSE: ' + response );
-
     if( response.status && response.status === 'ERROR' ) {
       throw response.statusInfo;
     } else {
-      sentence = response.docSentiment.score;
+      sentenceSentiment = response.docSentiment.score;
+      console.log( 'SENTENCE SENTIMENT: ' + sentenceSentiment );
       stageKeywords( );
       cleanText( );
       removeStopwords( );
