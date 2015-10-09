@@ -73,11 +73,11 @@ module.exports = function( data ) {
 
     for( i = 0; i < someWords.length; i++ ) {
       for( j = 0; j < staged.length; j++ ) {
-        if( staged[ i ].text === someWords[ i ].text ) {
-          staged[ i ].frequency += 1;
-          staged[ i ].averageSentiment =
-            ( staged[ i ].frequency - 1 ) * staged[ i ].averageSentiment / staged[ i ].frequency +
-            someWords[ i ].sentiment.score / staged[ i ].frequency;
+        if( staged[ j ].text === someWords[ i ].text ) {
+          staged[ j ].frequency += 1;
+          staged[ j ].averageSentiment =
+            ( staged[ j ].frequency - 1 ) * staged[ j ].averageSentiment / staged[ j ].frequency +
+            someWords[ i ].sentiment.score / staged[ j ].frequency;
           break;
         }
       } if( j < staged.length || ( staged.length === 0 && j === 0 ) ) {
