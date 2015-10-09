@@ -87,7 +87,7 @@ module.exports = function( data ) {
           frequency: 1
         });
       } if( typeof text === 'string' ) {
-        text = text.replace( keywords[ i ].text, '' );
+        text = text.replace( someWords[ i ].text, '' );
       }
     }
 
@@ -100,10 +100,9 @@ module.exports = function( data ) {
     text = removePunctuation( text );
     text = text.split( /(\s|\n)/g );
     while( i < text.length ) {
-      if( text[ i ] === '' ) {
+      if( text[ i ] === '' || text[ i ] === ' ' ) {
         text.splice( i, 1 );
       } else {
-        text[ i ].trim( );
         i++;
       }
     }
@@ -182,7 +181,7 @@ module.exports = function( data ) {
         );
         record.save( );
       } else {
-        db.Word.create({
+        return db.Word.create({
           word: word.text,
           frequency: word.frequency,
           averageSentiment: word.averageSentiment,
