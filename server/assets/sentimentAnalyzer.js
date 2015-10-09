@@ -182,7 +182,7 @@ module.exports = function( data ) {
         record.save( );
       } else {
         db.Word.create({
-          text: word.text,
+          word: word.text,
           frequency: word.frequency,
           averageSentiment: word.averageSentiment,
           userId: userId,

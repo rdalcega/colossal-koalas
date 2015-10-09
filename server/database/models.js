@@ -120,7 +120,7 @@ exports.Word = {
 
   attributes: {
 
-    text: Sequelize.STRING,
+    word: Sequelize.STRING,
 
     averageSentiment: Sequelize.FLOAT,
 
